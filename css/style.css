@@ -45,6 +45,55 @@ section>div{
 section>div~div{
 	text-align: center;
 }
+input[type="checkbox"] {
+	position: relative;
+	opacity: 0.9;
+	z-index: -1;
+}
+label>div{
+	display: inline-block;
+	box-sizing: border-box;
+	height: 20px;
+	width: 50px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 1px;
+	background-color: white;
+}
+input+label>div>div{
+	box-sizing: border-box;
+	height: 16px;
+	width: 18px;
+	border: 1px solid black;
+	border-radius: 9px 0px 0px 9px;
+	background-color: gray;
+	transition: 0.5s;
+}
+
+input:checked+label>div>div{
+	/* box-sizing: border-box; */
+	/* height: 16px; */
+	/* width: 18px; */
+	/* border: 1px solid black; */
+	border-radius: 0px 9px 9px 0px;
+	background-color: green;
+	margin-left: 28px;
+	transition: 0.5s;
+}
+input:checked+label{
+	color: green;
+}
+input+label::after{
+	display: inline-block;
+	content: "сделано не верно";
+	width: 140px;
+	transition: 0.5s;
+}
+input:checked+label::after{
+	/* display: inline-block; */
+	content: "сделано верно";
+	transition: 0.5s;
+}
 a {
 	display: block;
 }
