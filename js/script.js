@@ -33,7 +33,7 @@ function Zadanie2(){
 			if (gpNum==null) return; //Прерывание программы при отмене ввода
 			gpNum=Number(gpNum);
 			if (isNaN(gpNum)) alert("Вы ввели не число. Попробуйте еще раз.");
-			else if ((gpNum%1!==0) || (gpNum<0)) alert("Вы ввели не натуральное число.");
+			else if ((gpNum%1!==0) || (gpNum<0)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
 			else if (gpNum==0) break;
 			else {
 				for (i=1; i<=gpNum; i++){
@@ -47,7 +47,32 @@ function Zadanie2(){
 }
 
 function Zadanie3(){
-	
+	var gpChisla=[];
+	do{
+		// Ввод данных
+		for (i=0;i<3;i++){
+			switch i{
+				case "0": gpStr="первую"; breack;
+				case "1": gpStr="вторую"; breack;
+				case "2": gpStr="третью";
+			}
+			do{
+				gpChisla[i] = prompt("Введите "+gpStr+" цифру.","");
+				if (gpChisla[i]==null) return; //Прерывание программы при отмене ввода
+				gpChisla[i]=Number(gpChisla[i]);
+					
+				if (isNaN(gpChisla[i])) alert("Вы ввели не число. Попробуйте еще раз.");
+				else if ((gpChisla[i]%1!==0) || (gpChisla[i]<0)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
+				else if (gpChisla[i]>9)  alert("Вы ввели число, а не цифру. Попробуйте еще раз.");
+				else break;
+			}while (true)
+		}
+		// Расчет 
+			gpOtvet=gpChisla[0]*100+gpChisla[1]*10+gpChisla[2];
+		// вывод данных
+		alert(`Вы ввели три цифры: ${gpChisla[0]}; ${gpChisla[1]}; ${gpChisla[2]} \nМоя функция преобразовала их в число ${gpOtvet}`);
+		
+	}while (true)
 }
 
 function Zadanie4(){
