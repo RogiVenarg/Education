@@ -23,38 +23,48 @@ function Sravnenie(a, b){
 }
 
 // Задание 2
+function gpFactorial(chislo){
+	let myFactorial = 1;
+	if (chislo!==0){
+		for (i=1; i<=chislo; i++){
+			myFactorial = myFactorial*i;
+		}
+	}
+	return myFactorial;
+}
 function Zadanie2(){
-	var gpFactorial;
+	let otvet
 	do {
 		// Ввод данных
-		gpFactorial=1;
 		do {
 			gpNum=prompt("Введите натуральное число для вычисления его факториала.","");
 			if (gpNum==null) return; //Прерывание программы при отмене ввода
 			gpNum=Number(gpNum);
 			if (isNaN(gpNum)) alert("Вы ввели не число. Попробуйте еще раз.");
 			else if ((gpNum%1!==0) || (gpNum<0)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
-			else if (gpNum==0) break;
 			else {
-				for (i=1; i<=gpNum; i++){
-					gpFactorial=gpFactorial*i;
-				}
+				otvet = gpFactorial(gpNum);
 				break;
 			}
 		} while (true)
-		alert("Вы ввели число "+gpNum+". Факториал данного числа равен - "+gpFactorial);	
+		alert("Вы ввели число "+gpNum+". Факториал данного числа равен - "+otvet);	
 	}while(true)
 }
 
+// Задание 3
+function cifriVChislo (myChislo1, myChislo2, myChislo3){
+	return myChislo1*100+myChislo2*10+myChislo3;
+}
 function Zadanie3(){
-	var gpChisla=[];
+	let gpChisla=[];
+	let gpStr="";
 	do{
 		// Ввод данных
-		for (i=0;i<3;i++){
-			switch i{
-				case "0": gpStr="первую"; breack;
-				case "1": gpStr="вторую"; breack;
-				case "2": gpStr="третью";
+		for (i=0; i<3; i++){
+			switch (i) {
+				case 0: gpStr="первую"; break;
+				case 1:	gpStr="вторую"; break;
+				case 2: gpStr="третью";
 			}
 			do{
 				gpChisla[i] = prompt("Введите "+gpStr+" цифру.","");
@@ -68,10 +78,9 @@ function Zadanie3(){
 			}while (true)
 		}
 		// Расчет 
-			gpOtvet=gpChisla[0]*100+gpChisla[1]*10+gpChisla[2];
+			gpOtvet = cifriVChislo(gpChisla[0], gpChisla[1], gpChisla[2]);
 		// вывод данных
 		alert(`Вы ввели три цифры: ${gpChisla[0]}; ${gpChisla[1]}; ${gpChisla[2]} \nМоя функция преобразовала их в число ${gpOtvet}`);
-		
 	}while (true)
 }
 
