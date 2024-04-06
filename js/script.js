@@ -84,16 +84,126 @@ function Zadanie3(){
 	}while (true)
 }
 
+// Задание 4
+function sqrtPr() {
+	switch (arguments.length) {
+		case 1: return arguments[0]**2;
+		case 2: return arguments[0]*arguments[1];
+		default: return "Ошибка!!!";
+	}
+}
 function Zadanie4(){
-	
+	let gpNum;
+	let gpShir;
+	let otvet;
+	do{
+		do{
+			gpShir = "";
+			gpNum = prompt("Для вычисления площади прямоугольника\n введите его длинну и ширину в формате ЧИСЛО-ЧИСЛО\n\nДля вычисления площади квадрата \nвведите длинну его cтороны в формате ЧИСЛО");
+			if (gpNum==null) return; //Прерывание функции
+			if (gpNum.indexOf("-")==-1){
+				gpNam = Number(gpNum);
+				if (isNaN(gpNum) || (gpNum<0)){
+					alert("Вы не корректно ввели данные. Попробйте еще раз");
+					continue;
+				}
+				else { 
+					otvet = sqrtPr(gpNum);
+					break;
+				}
+			}
+			else{
+				gpShir = gpNum.substr(gpNum.indexOf("-")+1);
+				gpNum = gpNum.substring(0, gpNum.indexOf("-")); 
+				gpShir = Number(gpShir);
+				gpNum = Number(gpNum);
+				if (isNaN(gpShir) || isNaN(gpNum) || (gpShir<=0) || (gpNum<=0)){
+					alert("Вы не корректно ввели данные. Попробйте еще раз");
+					continue;
+				}
+				else {
+					otvet = sqrtPr(gpShir, gpNum);
+					break;
+				}
+			}
+		}while (true)
+		alert(`Вы ввели следующие параметры: ${gpNum}; ${gpShir}\nПлощадь равна: ${otvet}`);
+	}while (true)
 }
 
-function Zadanie5(){
-	
+// Задание 4
+function sovershenoeNumber(myChislo){
+	let myArray=[];
+	let i;
+	let j;
+	if ((myChislo<=0) || (myChislo%1!==0)) return " не является";
+	else {
+		j=0;
+		for (i=1; i<myChislo; i++){
+			if (myChislo % i==0) {myArray[j]=i; j++;}
+		}
+		for (i=1; i<j; i++)myArray[0] += myArray[i];
+		if (myArray[0]==myChislo) return " является";
+		else return " не является";
+	}		
 }
+function Zadanie5(){
+	let vivod;
+	do {
+		// Ввод
+		do{
+			gpNum=prompt("Введите число для проверки");
+			if (gpNum==null) return; // Выход из функции
+			gpNum = Number(gpNum);
+			if (isNaN(gpNum)) alert("Вы ввели не число. Попробуйте еще раз.");
+			else break;
+		}while (true)
+		// Проверка
+		vivod = sovershenoeNumber(gpNum);
+		// Вывод ответа
+		alert("Введенное Вами число "+gpNum+vivod+ " совершенным.");
+	} while (true)
+}
+
+// Задание 6
 
 function Zadanie6(){
-	
+	let gpArray=[];
+	let gpOtvet=[];
+	let i; let j;
+	do{
+		// ввод диапазона
+		do{
+			gpNum = prompt("Для поиска совершенных чисел введите диапазон поиска в формате ЧИСЛО-ЧИСЛО\nНапример 123-321");
+			if (gpNum == null) return //Завершение работы функции
+			gpArray=twoNumerInStr(gpNum);
+			if (gpArray=="Ошибка!!!") {alert("Диапазон введен не корректно. Попробуйте еще раз."); continue;}
+			else if ((gpArray[0]<0) || (gpArray[1]<0) || (gpArray[0]==gpArray[1])) {alert("Диапазон введен не корректно. Попробуйте еще раз."); continue;}
+			else break;
+		}while(true)
+		//Определение мин и мах значения диапазона
+		if (gpArray[1]<gpArray[0]) {
+			x=gpArray[1];
+			gpArray[1]=gpArray[0];
+			gpArray[0]=x;
+		}
+		gpArray[0] = Math.ceil(gpArray[0]);
+		gpArray[1] = Math.floor(gpArray[1]);
+		//поиск и отбор совершенных чисел
+		gpOtvet=[];
+		if (gpArray[0]>gpArray[1])j=0;
+		else{
+			j=0;
+			for (i=gpArray[0]; i<=gpArray[1]; i++){
+				if (sovershenoeNumber(i)==" является") {
+					gpOtvet[j] = i;
+					j++;
+				}
+			}
+		}
+		//вывод данных
+		alert("В введенном Вами диапазоне "+gpNum+" найдено " +j+(str=(j==1)?" совершенное число": " совершенных чисел")+":\n" + (a=(j==0) ? "" : gpOtvet));
+	}while(true)
 }
 
 function Zadanie7(){
