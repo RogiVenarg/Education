@@ -266,12 +266,78 @@ function Zadanie8(){
 	}while(true)
 }
 
+// Задание 9
+function raschetTime(myNum){
+	let myTime=[];
+	myTime[2] = myNum%60;
+	myNum = (myNum - myTime[2])/60;
+	myTime[1] = myNum %60;
+	myTime[0] = (myNum - myTime[1])/60;
+	myTime[3] = (myTime[0]>23) ? " (Количество секунд больше чем в одних сутках, результат выведен без учета переполнения)" : undefined;
+	myTime[0] = myTime[0] % 24;
+	return myTime;
+}	
 function Zadanie9(){
-	
+	let gpStr;
+	let gpTime=[];
+	let gpOtvet;
+	do{
+		//Ввод количества секунд
+		do {
+			gpStr = prompt("Введите количество секунд прошедших с начала дня.");
+			if (gpStr==null) return //Выход из функции
+			gpStr = Number(gpStr);
+			if (isNaN(gpStr)) alert ("Вы ввели не число. Попробуйте еще раз.");
+			if ((gpStr%1!==0) || (gpStr<0)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
+			else break;
+		} while (true)
+		// Вычисление часов/минут/секунд
+		gpTime = raschetTime(gpStr);
+		//перевод в нужный формат
+		gpOtvet=vivodCHminSek(gpTime[0],gpTime[1],gpTime[2]);
+		if (gpTime[3]!==undefined) gpOtvet += gpTime[3];
+		//Вывод сообщения
+		alert("Вы ввели "+gpStr+" секунд\nОт начала дня прошло: "+gpOtvet);
+	}while (true)
 }
 
+// задание 10
+function raznicaTime(myChas1, myMinuta1, mySek1, myChas2, myMinuta2, mySek2){
+		let mySekonds;
+		let myTime=[];
+		// Перевод в секунды + расчет разницы
+		mySekonds = timeInSekond(myChas2, myMinuta2, mySek2) - timeInSekond(myChas1, myMinuta1, mySek1);
+		if (mySekonds<0) mySekonds += 24*60*60;
+		// Вычисление часов/минут/секунд
+		myTime = raschetTime(mySekonds);
+		//перевод в нужный формат
+		return vivodCHminSek(myTime[0],myTime[1],myTime[2]);
+}
 function Zadanie10(){
+	let gpOtvet;
+	let gpStr1;	    let gpStr2;
+	let gpTime1=[]; let gpTime2=[]; 
 	
+	do{
+		// Ввод 1 даты
+		do {
+			gpStr1 = prompt("Для расчета разницы во времени введите первое время.\nВремя укажите в формате: чч-мм-сс","");
+			if (gpStr1==null) return //Выход из Функции
+			gpTime1=proverkaVvodaTime(gpStr1);
+			if (gpTime1!=="Ошибка!!!") break;
+		} while (true)
+		// Ввод 2 даты
+		do {
+			gpStr2 = prompt("Введите второе время в формате: чч-мм-сс", "");
+			if (gpStr2==null) return //Выход из Функции
+			gpTime2=proverkaVvodaTime(gpStr2);
+			if (gpTime2!=="Ошибка!!!") break;
+		} while (true)
+		//Нужная функция
+		gpOtvet = raznicaTime(gpTime1[0],gpTime1[1],gpTime1[2],gpTime2[0],gpTime2[1],gpTime2[2])
+		//Вывод ответа
+		alert("Разница между "+gpStr1+" и "+gpStr2+" составляет: "+gpOtvet);		
+	} while(true)
 }
 
 
