@@ -131,7 +131,7 @@ function Zadanie4(){
 	}while (true)
 }
 
-// Задание 4
+// Задание 5
 function sovershenoeNumber(myChislo){
 	let myArray=[];
 	let i;
@@ -166,7 +166,6 @@ function Zadanie5(){
 }
 
 // Задание 6
-
 function Zadanie6(){
 	let gpArray=[];
 	let gpOtvet=[];
@@ -206,12 +205,65 @@ function Zadanie6(){
 	}while(true)
 }
 
+//Думаю что последние 4 задания нужно выполнить используя встроенные функции времени.
+//но мы их не проходили поэтому придумаю что-то свое :(
+// задание 7
+function vivodCHminSek(){
+	let i;
+	for (i=0; i<3; i++) {
+		// Присвоение значения нулевого значения если аргументы не переданы
+		if (arguments[i]==undefined)  arguments[i]=0;
+		// Добавление нулей
+		if (arguments[i]<10) arguments[i]="0"+arguments[i];
+	}
+	console.log(arguments);
+	return '«'+arguments[0]+":"+arguments[1]+":"+arguments[2]+'»';
+}
 function Zadanie7(){
-	
+	let gpStr;
+	let gpOtvet;
+	let gpTime=[];
+	do{
+		// Ввод данных
+		do{
+			gpStr = prompt("Введите время в формате чч-мм-сс");
+			if (gpStr==null) return; //Выход из функции
+			gpTime = proverkaVvodaTime(gpStr);
+			if (gpTime!=="Ошибка!!!") break;
+		}while(true)
+		// Запуск функции
+		gpOtvet = vivodCHminSek(gpTime[0], gpTime[1], gpTime[2]);
+		// Вывод данных
+		alert("Вы ввели "+gpStr+"\nМоя функция вывела: "+gpOtvet);
+	}while(true)
 }
 
+// Задание 8
+function timeInSekond(){
+	// попытка предотвращения некорректного ввода
+	arguments[0] = arguments[0] % 24;
+	arguments[1] = arguments[1] % 60;
+	arguments[2] = arguments[2] % 60;
+	//сам расчет
+	return (arguments[0]*60+arguments[1])*60+arguments[2];
+}
 function Zadanie8(){
-	
+	let gpStr;
+	let gpTime=[];
+	let gpOtvet;
+	do{
+		// Ввод данных
+		do{
+			gpStr = prompt("Введите время в формате чч-мм-сс");
+			if (gpStr==null) return; //Выход из функции
+			gpTime=proverkaVvodaTime(gpStr);
+			if (gpTime!=="Ошибка!!!") break;
+		}while(true)
+		// Вычисление секунд
+		gpOtvet = timeInSekond(gpTime[0],gpTime[1],gpTime[2]);
+		//Вывод ответа
+		alert("Вы ввели следующее время: "+gpStr+"\nОт начала дня прошло: "+gpOtvet+" секунд.");
+	}while(true)
 }
 
 function Zadanie9(){
@@ -235,4 +287,31 @@ function twoNumerInStr (myStr){
 	myVivod[1]=Number(myVivod[1]);
 	if ((isNaN(myVivod[0])) || (isNaN(myVivod[1]))) return "Ошибка!!!";
 	else return myVivod;	
+}
+
+// Функция принимает строку и проверяет формат ввода времени, возвращает либо ошибку либо массив из часов минут и секунд
+function proverkaVvodaTime(myStr){
+	let myTime=[];
+	if (myStr.indexOf("-")==-1) {
+		alert("Вы должны ввести не менее двух разделительных знаков: -");
+		return "Ошибка!!!";
+	}
+	myTime[0]=myStr.substring(0, myStr.indexOf("-"));
+	myTime[1]=myStr.substr(myStr.indexOf("-")+1);
+	if (myTime[1].indexOf("-")==-1) {
+		alert("Вы должны ввести не менее двух разделительных знаков: -");
+		return "Ошибка!!!";
+	}
+	myTime[2]=myTime[1].substr(myTime[1].indexOf("-")+1);
+	myTime[1]=myTime[1].substring(0, myTime[1].indexOf("-"));
+	for (i=0; i<3; i++) myTime[i]=Number(myTime[i]);
+	if (isNaN(myTime[0]) || isNaN(myTime[1]) || isNaN(myTime[2])){
+		alert("Вы не корректно ввели значения часов, минут или секунд");
+		return "Ошибка!!!";
+	}
+	if ((myTime[0]%1!==0) || (myTime[1]%1!==0) || (myTime[2]%1!==0) || (myTime[0]<0) || (myTime[1]<0) || (myTime[2]<0) || (myTime[0]>23) || (myTime[1]>59) || (myTime[2]>59)){
+		alert("Вы не корректно ввели значения часов, минут или секунд. Используйте натуральные числа в пределах: 0-23 для часов и 0-59 для минут и секунд.");
+		return "Ошибка!!!";
+	}
+	else return myTime;
 }
