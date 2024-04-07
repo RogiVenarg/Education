@@ -216,7 +216,6 @@ function vivodCHminSek(){
 		// Добавление нулей
 		if (arguments[i]<10) arguments[i]="0"+arguments[i];
 	}
-	console.log(arguments);
 	return '«'+arguments[0]+":"+arguments[1]+":"+arguments[2]+'»';
 }
 function Zadanie7(){
