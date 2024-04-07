@@ -14,7 +14,6 @@ function Zadanie1(){
 		// Вывод результата
 		alert("Вы ввели "+gpStr+"\nЗначение исполняемой функции: "+Sravnenie(gpChisla[0],gpChisla[1]));	
 	}while(true)
-	
 }
 function Sravnenie(a, b){
 	if (a<b) return -1;
@@ -52,9 +51,7 @@ function Zadanie2(){
 }
 
 // Задание 3
-function cifriVChislo (myChislo1, myChislo2, myChislo3){
-	return myChislo1*100+myChislo2*10+myChislo3;
-}
+function cifriVChislo (myChislo1, myChislo2, myChislo3){return myChislo1*100+myChislo2*10+myChislo3;}
 function Zadanie3(){
 	let gpChisla=[];
 	let gpStr="";
@@ -205,8 +202,6 @@ function Zadanie6(){
 	}while(true)
 }
 
-//Думаю что последние 4 задания нужно выполнить используя встроенные функции времени.
-//но мы их не проходили поэтому придумаю что-то свое :(
 // задание 7
 function vivodCHminSek(){
 	let i;
@@ -316,7 +311,6 @@ function Zadanie10(){
 	let gpOtvet;
 	let gpStr1;	    let gpStr2;
 	let gpTime1=[]; let gpTime2=[]; 
-	
 	do{
 		// Ввод 1 даты
 		do {

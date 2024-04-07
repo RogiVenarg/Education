@@ -31,13 +31,11 @@ h2 {
 	text-align:center;
 	margin: 5px auto;
 }
-
 p{
 	text-align: justify;
 	margin: 0px 10px;
 	text-indent: 25px;
 }
-
 section{
 	display: flex;
 	background-color: #fffcaa;
@@ -60,7 +58,7 @@ input[type="checkbox"] {
 	opacity: 0.9;
 	z-index: -1;
 }
-label>div{    
+label>span{    
 	display: inline-block;
 	vertical-align: middle;
     box-sizing: border-box;
@@ -72,7 +70,8 @@ label>div{
     background-color: white;
     transition: 0.5s;
 }
-input+label>div>div{
+input+label>span>span{
+	display: block;
     box-sizing: border-box;
     height: 100%;
     width: calc(100% / 2 - 10%);
@@ -84,18 +83,17 @@ input+label>div>div{
 label:hover{
 	cursor: pointer;
 }
-input:checked+label>div{
+input:checked+label>span{
     border-color: green;
     transition: 0.5s;
 }
-input:checked+label>div>div{
+input:checked+label>span>span{
 
     border: 1px solid green;
     border-radius: 0px 9px 9px 0px;
     background-color: #26df26;
     margin-left: calc(100% /2 + 10%);
     transition: 0.5s;
-}
 }
 input:checked+label{
 	color: green;
@@ -143,6 +141,7 @@ a {
 	color: black;
 	text-decoration: none;
 }
+/* Адаптивность */
 @media (max-width: 950px){
 	section{width:100%;}
 }
