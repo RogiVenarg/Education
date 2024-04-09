@@ -1,5 +1,18 @@
+// Задание 1
+function numberInStepen(myNum, myStep){
+	if (myStep==0) return 1;
+	else return myNum*numberInStepen(myNum,myStep-1);
+}
 function Zadanie1(){
-	alert("1 работает");
+	let gpOtvet;
+	let gpNum;
+	let gpStep;
+	
+	gpNum = +prompt("Введите число");
+	gpStep = +prompt("Введите степень");
+	gpOtvet = numberInStepen(gpNum,gpStep);
+	alert("1 работает"+gpOtvet);
+	
 }
 
 function Zadanie2(){
