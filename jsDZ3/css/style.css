@@ -1,0 +1,75 @@
+body{
+	font-family: sans-serif;
+	background-color: #eee;
+}
+main{
+	background-color: rgb(255 255 200);
+	box-shadow: 0px 0px 5px gray;
+	max-width: 1400px;
+	border: 1px solid gray;
+	margin: 0px auto;
+}
+h1{	text-align: center;}
+hr{	margin: 0px 10px;}
+div.conteiner{
+	display: flex;
+	flex-flow: row wrap;
+	text-align: center;
+}
+
+Article {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	box-sizing: border-box;
+	background-color: white;
+	box-shadow: 2px 2px 2px rgb(170 170 255);
+	width: calc((100% - 2px - 10px) / 3 - 10px - 2px *2 - 2px);
+	min-width: 300px;
+	margin: 10px;
+	padding: 5px;
+	border: 2px solid rgb(100 100 255);
+}
+Article.x2{
+	width: calc((100% - 2px - 10px) * 2 / 3 - 10px  - 2px);
+	min-width: 620px;
+}
+h2{
+	margin-bottom: 10px;
+	font-size: 1.45rem;
+	text-decoration: underline rgb(100 100 255);
+	color: rgb(100 100 255);
+}
+article p{
+	font-size: 1.1rem;
+	text-align: justify;
+	text-indent: 25px;
+	margin: 0px 10px;
+}
+Article hr{	margin-top:30px;}
+button {
+	border-radius: 10px;
+	background-color: rgb(100 100 255);
+	color: white;
+	margin: 5px;
+	padding: 10px 5px;
+	font-size: 1.25rem;
+}
+
+/* Медиазапросы */
+
+@media (max-width: 1000px){
+	Article {
+		width: calc((100% - 2px - 10px) / 2 - 10px - 2px *2 - 2px);
+		min-width: auto;
+	}
+	Article.x2{
+		width: calc(100% - 2px - 10px - 10px  - 2px);
+		min-width: auto;
+	}
+}
+
+@media (max-width: 700px){
+	Article {width: 100%;}
+	Article.x2{width: 100%;}
+}
