@@ -65,7 +65,6 @@ function Zadanie2(){
 
 // Задание 3
 function myMaxCif(){
-	console.log(arguments);
 	if (arguments.length==1) return myMaxCif(String(arguments[0]),0)
 	if (arguments[0].substr(0,1)==".") {}
 	else {
@@ -85,29 +84,109 @@ function Zadanie3(){
 			gpStr = prompt("Для поиска максимальной цифры введите любое число.", "");
 			if (gpStr == null) return //Выход из функции
 			gpStr=Number(gpStr);
-			if (isNaN(gpStr)) alert("Вы ввели не число. попробуйте еще раз.");
+			if (isNaN(gpStr)) alert("Вы ввели не число. Попробуйте еще раз.");
 			else break;
 		}while (true)
 		//нахождение максимальной цифры
-		console.log(gpStr);
 		gpChislo = (gpStr<0) ? -gpStr : gpStr;
-		console.log(gpChislo);
 		gpOtvet=myMaxCif(gpChislo);
 		// Вывод ответа
 		alert("Вы ввели число "+gpStr+".\nМаксимальная цифра в данном числе: "+gpOtvet);
 	}while(true)
 }
 
+// Задание 4
+function myProstoNum(){
+	if (arguments.length==1) {
+		if ((arguments[0]%1!==0) || (arguments[0]<1)) return "не является";
+		else return myProstoNum(arguments[0], arguments[0]-1);
+	}
+	else {
+		if (arguments[1]<=1) return "является";
+		else {
+			if (arguments[0]%arguments[1]==0) return "не является";
+			else return myProstoNum(arguments[0], arguments[1]-1);
+		}
+	}
+}
 function Zadanie4(){
-	alert("4 работает");
+	let gpStr;
+	let gpOtvet;
+	
+	do{
+		// Ввод данных
+		do{
+			gpStr = prompt("Введите число для определения простое ли оно.", "");
+			if (gpStr == null) return //Выход из функции
+			gpStr=Number(gpStr);
+			if (isNaN(gpStr)) alert("Вы ввели не число. Попробуйте еще раз.");
+			else break;
+		}while (true)
+		//Определение простое ли число
+		gpOtvet=myProstoNum(gpStr);
+		// Вывод ответа
+		alert("Вы ввели число "+gpStr+".\nДанное число "+gpOtvet+" простым.");
+	}while(true)
 }
 
+// Задание 5
+function myMnozitNum(){
+	if (arguments.length==1) return myMnozitNum(arguments[0], 2);
+	else{
+		if (arguments[0] == arguments[1]) return arguments[0];
+		if (arguments[0]%arguments[1]==0) return `${arguments[1]} * ${myMnozitNum((arguments[0]/arguments[1]),2)}`;
+		else return myMnozitNum(arguments[0], (arguments[1]+1));
+	}
+}
 function Zadanie5(){
-	alert("5 работает");
+	let gpStr;
+	let gpOtvet;
+	
+	do{
+		// Ввод данных
+		do{
+			gpStr = prompt("Введите натуральное число для определения его множителей.", "");
+			if (gpStr == null) return //Выход из функции
+			gpStr=Number(gpStr);
+			if (isNaN(gpStr)) alert("Вы ввели не число. Попробуйте еще раз.");
+			if ((gpStr%1 !==0) || (gpStr < 1)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
+			else break;
+		}while (true)
+		//Определение множителей натурального числа
+		gpOtvet = myMnozitNum(gpStr);
+		// Вывод ответа
+		alert("Вы ввели число "+gpStr+".\nДанное число имеет следующие множители: "+gpOtvet);
+	}while(true)
 }
 
+// Задание 6
+function myFibonachiNum(){
+	if (arguments.length !== 3) return myFibonachiNum(arguments[0],0,1);
+	if (arguments[0]==1) return arguments[2];
+	else{
+		arguments[0]--;
+		return myFibonachiNum(arguments[0],arguments[2],arguments[1]+arguments[2]);
+	}
+}
 function Zadanie6(){
-	alert("6 работает");
+	let gpStr;
+	let gpOtvet;
+	
+	do{
+		// Ввод данных
+		do{
+			gpStr = prompt("Введите порядковый номер числа Фибоначи и я скажу что это за число.", "");
+			if (gpStr == null) return //Выход из функции
+			gpStr=Number(gpStr);
+			if (isNaN(gpStr)) alert("Вы ввели не число. Попробуйте еще раз.");
+			if ((gpStr%1 !==0) || (gpStr < 1)) alert("Вы ввели не натуральное число. Попробуйте еще раз.");
+			else break;
+		}while (true)
+		//Определение множителей натурального числа
+		gpOtvet = myFibonachiNum(gpStr);
+		// Вывод ответа
+		alert("Вы запросили число с порядковым номером - "+gpStr+".\nДанное число: "+gpOtvet);
+	}while(true)
 }
 
 // Дополнительные фнкции
