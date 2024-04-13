@@ -4,85 +4,104 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Домашнее задание</title>
-	<link rel="stylesheet" href="css\style.css">
-	<script src="js\script.js"></script>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
 	<noscript>
 		<style>
-			section{display: none;}
-			.noscripts{
-				display: relative; 
-				width: 100%;
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
+				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
+			}
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
 			}
 		</style>
 	</noscript>
 </head>
 <body>
 	<header>
-		<h1>Домашнее задание по js №5</h1>
-		<img src="img\js.png" alt="JavaScript">
+		<h1>Домашнее задание №5 
+			<img src="img/js.png" alt="JS">
+		</h1>
 		<p class="noscripts">
-			В настоящщее ремя запуск скриптов отключен!!!<br>
-			Для корректной работы страницы включите запуск скриптов в браузере
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
 		</p>
+		<p>Во всех заданиях обязательно использовать рекурсию.</p>
 	</header>
 	<main>
-		<section class="shirokii">
-			<p>Во всех заданиях обязательно использовать рекурсию.</p>
-		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 1</h2>
 				<p>Написать функцию возведения числа в степень.</p>
-			</dir>
-			<dir>
-				<label for="firstZadan"><input type="text" id="firstZadan"><span><span></span></span></label>
+			</div>
+			<div>
 				<button onclick="Zadanie1()">Проверка</button>
-			</dir>
+				<input type="checkbox" id="firstZadan">
+				<label for="firstZadan"><span><span></span></span></label>
+			</div>
 		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 2</h2>
 				<p>Написать функцию поиска наибольшего общего делителя.</p>
-			</dir>
-			<dir>
-				<label for="secondZadanie"><input type="text" id="secondZadanie"><span><span></span></span></label>
+			</div>
+			<div>
 				<button onclick="Zadanie2()">Проверка</button>
-			</dir>
+				<input type="checkbox" id="secondZadanie">
+				<label for="secondZadanie"><span><span></span></span></label>
+			</div>
 		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 3</h2>
 				<p>Написать функцию для поиска максимальной цифры в числе.</p>
-			</dir>
-			<dir>
-				<label for="thirdZadanie"><input type="text" id="thirdZadanie"><span><span></span></span></label>
+			</div>
+			<div>
 				<button onclick="Zadanie3()">Проверка</button>
-			</dir>
+				<input type="checkbox" id="thirdZadanie">
+				<label for="thirdZadanie"><span><span></span></span></label>
+			</div>
 		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 4</h2>
 				<p>Написать функцию, которая определяет простое ли переданное число.</p>
-			</dir>
-			<dir>
-				<label for="fourthZadanie"><input type="text" id="fourthZadanie"><span><span></span></span></label>
-				<button onclick="Zadanie4()">Проверка</button>
-			</dir>
+			</div>
+			<div>
+				<button onclick="Zadanie4()">Проверка</button>,
+				<input type="checkbox" id="fourthZadanie">
+				<label for="fourthZadanie"><span><span></span></span></label>
+			</div>
 		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 5</h2>
 				<p>Написать функцию для вывода всех множителей переданного
 				числа в возрастающем порядке.
 				Например: число 18 – множители 2 * 3 * 3.</p>
-			</dir>
-			<dir>
-				<label for="fifthZadanie"><input type="text" id="fifthZadanie"><span><span></span></span></label>
+			</div>
+			<div>
 				<button onclick="Zadanie5()">Проверка</button>
-			</dir>
+				<input type="checkbox" id="fifthZadanie">
+				<label for="fifthZadanie"><span><span></span></span></label>
+			</div>
 		</section>
-		<section>
-			<dir>
+		<section class="zadan">
+			<div>
 				<h2>Задание 6</h2>
 				<p>
 					Написать функцию, которая возвращает число Фибоначчи
@@ -92,17 +111,17 @@
 					Например: порядковый номер 3 – число 2, порядковый
 					номер 6 – число 8.
 				</p>
-			</dir>
-			<dir>
-				<label for="sixthZadanie"><input type="text" id="sixthZadanie"><span><span></span></span></label>
+			</div>
+			<div>
 				<button onclick="Zadanie6()">Проверка</button>
-			</dir>
+				<input type="checkbox" id="sixthZadanie">
+				<label for="sixthZadanie"><span><span></span></span></label>
+			</div>
 		</section>
 	</main>
 	<footer>
-		<p> Данное задание разработано с применением системы контроля версий Git
-			<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
-		</p>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
 	</footer>
 </body>
 </html>
