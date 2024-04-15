@@ -1,3 +1,227 @@
-.noscripts {
+:root{
+	--main-color1: #ffe000;
+	--main-color2: #ffff44;	
+	--main-color3: #E8C5E8;	
+}
+html {
+	font-family: arial, sans-serif;
+}
+body{
+	max-width: 1400px;
+	width: 98%;
+	padding: 0px;
+	margin: 0px auto;
+	box-shadow: 0px 0px 5px black;
+}
+header{
+	text-align: center;
+	padding: 0px 5px;
+	background-color: var(--main-color1);
+}
+h1{
+	display: inline-block;
+	text-align: center;
+	font-size: 1.7rem;
+}
+h1>img{
+    height: 35px;
+    width: 35px;
+    vertical-align: bottom;
+}
+header>p~p{
+	margin: 10px 0px 0px 0px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+footer{
+	padding: 10px 15px;
+	background-color: var(--main-color1);
+}
+footer p {margin: 5px 0px;}
+footer a{
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #797979;
+	transition: 0.25s;
+}
+footer a:hover{
+	text-decoration: underline;
+	text-shadow: none;
+	text-shadow: 0px 0px 1px #797979;
+	transition: 0.25s;
+}
+main{
+	display: flex;
+	flex-flow: row wrap;    
+	background-color: var(--main-color2);
+	padding-bottom: 5px;
+}
+section.zadan {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	width: calc(50% - 2px - 30px);
+	margin: 15px;
+	border: 1px solid purple;
+	background-color:  var(--main-color3);
+	box-shadow: 7px 7px 4px #d38fd3;
+}
+.zadan>div{
+	padding: 0px 10px;
+	text-align: justify;
+	text-indent: 25px;
+}
+.zadan>div+div{
+	text-align: center;
+	padding: 5px 0px;
+}
+.zadan h2{
+	text-align: center;
+	text-indent: 0px;
+	margin: 5px 0px;
+}
+.zadan p{margin: 10px 0px;}
+.zadan input {
+	position: relative;
+	z-index: -1;
+	opacity: 0;
+}
+.zadan button{
+	padding: 5px 20px;
+	margin: 5px 15px 5px 0px;
+	font-size: 1.25rem;
+	color: white;
+	text-shadow: 1px 1px 2px  var(--main-color3);
+	text-indent: 0px;
+	background-color: purple;
+	border: none;
+	border-radius: 5px;
+}
+.zadan button:hover{
+	text-shadow: none;
+	filter: brightness(150%);
+}
+label{
+	display: inline-block;
+	text-indent: 0px;
+}
+.zadan label.rezults::before{
+	display: inline-block;
+	content: 'Результат:';
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.zadan label.rezults::after{
+	display: inline-block;
+	content: 'не проверено';
+	color: gray;
+	font-size: 16px;
+	margin-left: 5px;
+}
+.zadan span{
+	text-indent: 0px;
+	vertical-align: middle;
+	display: inline-block;
+	height: 15px;
+	width: 50px;
+	padding: 2px;
+	border: 1px solid purple;
+	border-radius: 5px;
+	background-color: white;
+}
+.zadan span>span{
+	display: block;
+	height: calc(100% - 6px);
+	width: 30%;
+	border-radius: 3px;
+	background-color: gray;
+	transition: 0.25s;
+}
+.zadan input span>span{
+	display: block;
+	height: calc(100% - 6px);
+	width: 30%;
+	border-radius: 3px;
+	background-color: gray;
+	transition: 0.25s;
+}
+.zadan label.rezults:hover span>span{
+	filter: brightness(125%);
+	transition: 0.25s;
+}
+.zadan input:checked+label.rezults::after{
+	display: inline-block;
+	content: 'cправился';
+	font-weight: bold;
+	color: purple;
+	margin-right: 16px;
+}
+.zadan input:checked+label span>span{
+	margin-left: calc(70% - 6px);
+	height: calc(100% - 6px);
+	background-color: purple;
+	transition: 0.25s;
+}
+div.myCode {
+	position: relative;
+	padding: 0px !important; 
+}
+.myCode label.viewCode{
+	display: block;
+	background-color: purple;
+	color: white;
+	font-weight: bold;
+	margin: 0px;
+	padding: 5px 15px;
+}
+.myCode input{
+	position: relative;
+	z-index: -1;
+	opacity: 0;
+}
+.myCode pre{
 	display: none;
+	margin: 0px;
+	padding: 5px 10px;
+}
+.myCode input:checked~label~pre{
+	display: block;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	z-index: 2;
+	background-color: white; 
+	border: 4px solid purple;
+	text-align: left;
+}
+.noscripts {display: none;}
+
+
+/* Медиазапросы */
+@media (max-width: 1050px){
+	label{display: block;}
+}
+@media (max-width: 920px){
+	section.zadan {width: 100%;}
+	label{display: inline-block;}
+}
+@media (max-width: 580px){
+	label{
+		display: block;
+		text-indent: 0px;
+	}
+}
+@media (max-width: 400px){
+	h1{font-size: 1.1rem;}	
+	h1>img{
+		height: 20px;
+		width: 20px
+	}
+	h2{font-size: 1rem;}
+}
+@media (max-width: 318px){
+	.zadan label::before{display: block;}
+	.zadan label::after{display: block;	}
 }

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta>
-	<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js"></script>
 	<noscript>
 		<style>
-		
+			.noscripts {
+				display: block;
+			}
+			h1,main,footer{
+				display: none;
+			}
 		</style>
 	</noscript>
 	<title></title>
 </head>
 <body>
 	<header>
-		<h1></h1>
+		<h1>Домашнее задание №8</h1>
 		<div class="noscripts">
 			<p>
 				В вашем браузуре отключены скрипты. <br>
@@ -23,119 +28,300 @@
 		</div>
 	</header>
 	<main>
-		<section>
+		<section class="zadan">
 			<div>
-				<h2></h2>
-				<p></p>
+				<h2>Задание 1</h2>
+				<p>
+					Написать функцию, которая принимает строку и выводит
+					статистику о ней: количество букв, количество цифр и
+					количество других знаков.
+				</p>
 			</div>
 			<div>
-				<input type="checkbox">
-				<label for=""><span><span></span></span></label>
+				<button onclick="Zadanie1()">Проверить</button>
+				<input type="checkbox" id="firstZadanie">
+				<label for="firstZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
 			</div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
-			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
-			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
+			<div class="myCode">
+				<input type="checkbox" id="kOneZadan">
+				<label for="kOneZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
 			</div>
 		</section>
-		<section>
+		<section class="zadan">
 			<div>
-				<h2></h2>
-				<p></p>
+				<h2>Задание 2</h2>
+				<p>
+					Написать функцию, которая принимает двузначное число
+					и возвращает его в текстовом виде.
+					Например: 35 - тридцать пять, 89 - восемьдесят девять, 12 - двенадцать.
+				</p>
 			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
 			<div>
-				<p></p>
-				<pre><code></code></pre>
+				<button onclick="Zadanie2()">Проверить</button>
+				<input type="checkbox" id="secondZadanie">
+				<label for="secondZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
 			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
-			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
+			<div class="myCode">
+				<input type="checkbox" id="kTwoZadan">
+				<label for="kTwoZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
 			</div>
 		</section>
-		<section>
+		<section class="zadan">
 			<div>
-				<h2></h2>
-				<p></p>
+				<h2>Задание 3</h2>
+				<p>
+					Написать функцию, которая заменяет в полученной строке
+					большие буквы на маленькие, маленькие – на большие, а
+					цифры – на знак нижнего подчеркивания.
+				</p>
 			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
 			<div>
-				<p></p>
-				<pre><code></code></pre>
+				<button onclick="Zadanie3()">Проверить</button>
+				<input type="checkbox" id="thirdZadanie">
+				<label for="thirdZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
 			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
-			</div>
-		</section>
-		<section>
-			<div>
-				<h2></h2>
-				<p></p>
-			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
-			<div>
-				<p></p>
-				<pre><code></code></pre>
+			<div class="myCode">
+				<input type="checkbox" id="kThreeZadan">
+				<label for="kThreeZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
 			</div>
 		</section>
-		<section>
+		<section class="zadan">
 			<div>
-				<h2></h2>
-				<p></p>
+				<h2>Задание 4</h2>
+				<p>
+					Написать функцию, которая преобразует названия css-
+					стилей с дефисом в название в СamelСase стиле: font-size
+					в fontSize, background-color в backgroundColor, textalign
+					в textAlign.
+				</p>	
 			</div>
-			<div><input type="text"><label for=""><span><span></span></span></label></div>
 			<div>
-				<p></p>
-				<pre><code></code></pre>
+				<button onclick="Zadanie4()">Проверить</button>
+				<input type="checkbox" id="fourthZadanie">
+				<label for="fourthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kFourZadan">
+				<label for="kFourZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 5</h2>
+				<p>
+					Написать функцию, которая принимает словосочетание
+					и превращает его в аббревиатуру.
+					Например: cascading style sheets в CSS, объектно-ориентированное программирование
+					в ООП.
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie5()">Проверить</button>
+				<input type="checkbox" id="fifthZadanie">
+				<label for="fifthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kFiveZadan">
+				<label for="kFiveZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 6</h2>
+				<p>
+					Написать функцию, которая принимает любое коли-
+					чество строк, объединяет их в одну длинную строку и
+					возвращает ее.
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie6()">Проверить</button>
+				<input type="checkbox" id="sixthZadanie">
+				<label for="sixthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kSixZadan">
+				<label for="kSixZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 7</h2>
+				<p>
+					Написать функцию – калькулятор. Функция принимает
+					строку с примером, определяет, какое действие необходимо
+					выполнить (+ - * /), переводит операнды в числа, решает
+					пример и возвращает результат.
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie7()">Проверить</button>
+				<input type="checkbox" id="sevenZadanie">
+				<label for="sevenZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kSevenZadan">
+				<label for="kSevenZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 8</h2>
+				<p>
+					Написать функцию, которая получает url и выводит под-
+					робную информацию о нем.
+					Например: url “https://itstep.org/ua/about”, информация "протокол: https, домен: instep.org, путь: ua/about".
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie8()">Проверить</button>
+				<input type="checkbox" id="eightZadanie">
+				<label for="eightZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kEightZadan">
+				<label for="kEightZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 9</h2>
+				<p>
+					Написать функцию, которая принимает строку и раздели-
+					тель и возвращает массив подстрок, разбитых с помощью
+					указанного разделителя.
+					Например: строка "10/08/2020", разделитель “/”, результат:
+					“10”, "08", “2020”.
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie9()">Проверить</button>
+				<input type="checkbox" id="ninthZadanie">
+				<label for="ninthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kNineZadan">
+				<label for="kNineZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 10</h2>
+				<p>
+					Написать функцию вывода текста по заданному шаблону.
+					Функция принимает первым параметром шаблон, в тексте
+					которого может использоваться %, после символа % ука-
+					зывается индекс входного параметра. При выводе вместо %индекс
+					необходимо вывести значение соответствующего
+					входного параметра.
+					Например: print("Today is %1 %2. %3. %4", "Monday", 10, 8, 2020)
+					должна вывести "Today is Monday 10.8.2020".
+				</p>
+			</div>
+			<div>
+				<button onclick="Zadanie10()">Проверить</button>
+				<input type="checkbox" id="tenthZadanie">
+				<label for="tenthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kTenZadan">
+				<label for="kTenZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
 			</div>
 		</section>
 	</main>
+	<footer>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
+	</footer>
 </body>
 </html>
