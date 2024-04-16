@@ -312,14 +312,14 @@ function Zadanie10(){
 	let gpStr1;	    let gpStr2;
 	let gpTime1=[]; let gpTime2=[]; 
 	do{
-		// Ввод 1 даты
+		// Ввод 1 времени
 		do {
-			gpStr1 = prompt("Для расчета разницы во времени введите первое время.\nВремя укажите в формате: чч-мм-сс","");
+			gpStr1 = prompt("Первай вариант решения.\n\nДля расчета разницы во времени введите первое время.\nВремя укажите в формате: чч-мм-сс","");
 			if (gpStr1==null) return //Выход из Функции
 			gpTime1=proverkaVvodaTime(gpStr1);
 			if (gpTime1!=="Ошибка!!!") break;
 		} while (true)
-		// Ввод 2 даты
+		// Ввод 2 времени
 		do {
 			gpStr2 = prompt("Введите второе время в формате: чч-мм-сс", "");
 			if (gpStr2==null) return //Выход из Функции
@@ -329,7 +329,57 @@ function Zadanie10(){
 		//Нужная функция
 		gpOtvet = raznicaTime(gpTime1[0],gpTime1[1],gpTime1[2],gpTime2[0],gpTime2[1],gpTime2[2])
 		//Вывод ответа
-		alert("Разница между "+gpStr1+" и "+gpStr2+" составляет: "+gpOtvet);		
+		alert("Разница между "+gpStr1+" и "+gpStr2+" составляет: "+gpOtvet);
+	} while(true)
+}
+// задание 10 Вариант с датой
+function raznicaDate(myChas1, myMinuta1, mySek1, myChas2, myMinuta2, mySek2){
+	
+}
+function Zadanie10New(){
+	let gpOtvet;
+	let gpStr1=[];	    let gpStr2=[];
+	let gpData1=[];     let gpData2=[]; 
+	let gpTime1=[];     let gpTime2=[]; 
+	
+	do{
+		// Ввод 1 даты
+		do {
+			gpStr1[0] = prompt("Второй вариант решения.\n\nДля расчета разницы введите первую дату.\nДату укажите в формате: ДД-ММ-ГГГГ:чч-мм-сс","10-10-1010:20-20-20");
+			if (gpStr1[0]==null) return //Выход из Функции
+			if (gpStr1[0].indexOf(":") == -1) {
+				alert("Неверный формат ввода даты.\nВы не ввели разделительный символ - ':'");
+				continue;
+			}
+			gpStr1[1] = gpStr1[0].substr(0, gpStr1[0].indexOf(":"));
+			gpStr1[2] = gpStr1[0].substr(gpStr1[0].indexOf(":")+1);
+			gpData1=proverkaVvodaDati(gpStr1[1]);
+			gpTime1=proverkaVvodaTime(gpStr1[2]);
+console.log(gpData1, gpTime1)
+			if ((gpTime1!=="Ошибка!!!") || (gpData1!=="Ошибка!!!")) break;
+		} while (true)
+			
+		// Ввод 2 даты
+		do {
+			gpStr2[0] = prompt("Введите вторую дату в формате: ДД-ММ-ГГГГ:чч-мм-сс", "11-11-1111:22-22-22");
+			if (gpStr2[0]==null) return //Выход из Функции
+			if (gpStr2[0].indexOf(":") == -1) {
+				alert("Неверный формат ввода даты.\nВы не ввели разделительный символ - ':'");
+				continue;
+			}
+			gpStr2[1] = gpStr2[0].substr(0, gpStr2[0].indexOf(":"));
+			gpStr2[2] = gpStr2[0].substr(gpStr2[0].indexOf(":")+1);
+			gpData2=proverkaVvodaDati(gpStr2[1]);
+			gpTime2=proverkaVvodaTime(gpStr2[2]);
+console.log(gpData2, gpTime2)
+			if ((gpTime2!=="Ошибка!!!") || (gpDate2!=="Ошибка!!!")) break;
+		} while (true)
+			
+		
+		//Нужная функция
+		gpOtvet = raznicaTime(gpTime1[0],gpTime1[1],gpTime1[2],gpTime2[0],gpTime2[1],gpTime2[2])
+		//Вывод ответа
+		alert("Разница между "+gpStr1+" и "+gpStr2+" составляет: "+gpOtvet);
 	} while(true)
 }
 
@@ -371,6 +421,51 @@ function proverkaVvodaTime(myStr){
 	if ((myTime[0]%1!==0) || (myTime[1]%1!==0) || (myTime[2]%1!==0) || (myTime[0]<0) || (myTime[1]<0) || (myTime[2]<0) || (myTime[0]>23) || (myTime[1]>59) || (myTime[2]>59)){
 		alert("Вы не корректно ввели значения часов, минут или секунд. Используйте натуральные числа в пределах: 0-23 для часов и 0-59 для минут и секунд.");
 		return "Ошибка!!!";
-	}
+	}	
 	else return myTime;
+}
+
+// Функция принимает строку и проверяет формат ввода даты, возвращает либо ошибку либо массив из дня, месяца, года
+function proverkaVvodaDati(myStr){
+	let myDate=[];
+	let maxDay;
+	// разделение на подстроки
+	if (myStr.indexOf("-")==-1) {
+		alert("Вы должны ввести не менее двух разделительных знаков: -");
+		return "Ошибка!!!";
+	}
+	myDate[0]=myStr.substring(0, myStr.indexOf("-"));
+	myDate[1]=myStr.substr(myStr.indexOf("-")+1);
+	if (myDate[1].indexOf("-")==-1) {
+		alert("Вы должны ввести не менее двух разделительных знаков: -");
+		return "Ошибка!!!";
+	}
+	myDate[2]=myDate[1].substr(myDate[1].indexOf("-")+1);
+	myDate[1]=myDate[1].substring(0, myDate[1].indexOf("-"));
+	// Проверка на корректность вводаданных
+	for (i=0; i<3; i++) myDate[i]=Number(myDate[i]);
+	if (isNaN(myDate[0]) || isNaN(myDate[1]) || isNaN(myDate[2])){
+		alert("Вы не корректно ввели значения часов, минут или секунд");
+		return "Ошибка!!!";
+	}
+	if ((myDate[0]%1!==0) || (myDate[1]%1!==0) || (myDate[2]%1!==0) || (myDate[0]<=0) || (myDate[1]<=0)|| (myDate[0]>31) || (myDate[1]>12)){
+		alert("Вы не корректно ввели значения даты. Используйте натуральные числа в пределах: 1-31 для дней, 1-12 для месяцев и любое целое число для года.");
+		return "Ошибка!!!";
+	}
+	
+	// Вычисление максимального дня во введенном месяце
+	if (myDate[1]==2) {
+		// Високосность года
+		if (myDate[2] % 400 == 0) maxDay=29;
+		else if ((myDate[2] % 4 == 0) && !(myDate[2] % 100 ==0)) maxDay=29;
+		else maxDay=28;
+	} 
+	else maxDay = ((myDate[1]==4) || (myDate[1]==6) || (myDate[1]==9) || (myDate[1]==11))? 30 : 31;
+	
+	// Проверка на количество дней в месяце
+	if (myDate[0] > maxDay) {
+		alert("В данном месяце меньше дней чем Вы ввели.");
+		return "Ошибка!!!";
+	}
+	else return myDate;
 }
