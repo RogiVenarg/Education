@@ -333,8 +333,36 @@ function Zadanie10(){
 	} while(true)
 }
 // задание 10 Вариант с датой
-function raznicaDate(myChas1, myMinuta1, mySek1, myChas2, myMinuta2, mySek2){
+function raznicaDataTime(myVivod, myOperac, myData1, myTime1, myData2, myTime2){
+	//Переводим в секунды
+	let myFirstTime = new Date(Date.UTC(myData1[2], myData1[1], myData1[0]));
+	let mySecondTime = new Date(Date.UTC(myData2[2], myData2[1], myData2[0]));
+	myFirstTime = myFirstTime.getTime();
+	mySecondTime = mySecondTime.getTime();
+	myFirstTime += timeInSekond(myTime1[0], myTime1[1], myTime1[2]) * 1000;  //функция из предыдущего задания
+	mySecondTime += timeInSekond(myTime2[0], myTime2[1], myTime2[2]) * 1000; //функция из предыдущего задания
 	
+	//Вычисления в секундах в зависимости от параметра
+	myFirstTime = (myOperac<0) ? mySecondTime-myFirstTime : myFirstTime+mySecondTime;
+	
+	//Перевоим секунды в два массива
+	let myData = new Date(myFirstTime);
+	let myVivodData = [myData.getUTCFullYear(), myData.getUTCMonth(), myData.getUTCDate()];
+	mySecondTime = new Date(Date.UTC(myVivodData[0], myVivodData[1], myVivodData[2])).getTime();
+	myFirstTime -= mySecondTime;
+	let myTime = raschetTime(myFirstTime/1000);	//функция из предыдущего задания
+	myVivodData[0] -= 1970;
+	
+	//Выводим нужное значение разницы во времени
+	if (myVivodData[2]<10) myVivodData[2]="0"+myVivodData[2];
+	if (myVivodData[1]<10) myVivodData[1]="0"+myVivodData[1];
+	while (String(myVivodData[0]).length < 4) {myVivodData[0] = "0"+myVivodData[0];}
+	if (myVivod==0) return vivodCHminSek(myTime[0], myTime[1], myTime[2]); //функция из предыдущего задания
+	else if (myVivod==1) {
+		for (i=0; i<3; i++) {if (myTime[i]<10) myTime[i]="0"+myTime[i];}
+		return '«'+myVivodData[2]+'.'+myVivodData[1]+'.'+myVivodData[0]+' '+myTime[0]+":"+myTime[1]+":"+myTime[2]+'»\n(Формат: ДД.ММ.ГГГГ ЧЧ:ММ:СС)';
+	}
+	else return "Я не знаю что вывести."
 }
 function Zadanie10New(){
 	let gpOtvet;
@@ -345,7 +373,7 @@ function Zadanie10New(){
 	do{
 		// Ввод 1 даты
 		do {
-			gpStr1[0] = prompt("Второй вариант решения.\n\nДля расчета разницы введите первую дату.\nДату укажите в формате: ДД-ММ-ГГГГ:чч-мм-сс","10-10-1010:20-20-20");
+			gpStr1[0] = prompt("Второй вариант решения.\n\nДля расчета разницы введите первую дату.\nДату укажите в формате: ДД-ММ-ГГГГ:чч-мм-сс","10-10-2010:20-20-20");
 			if (gpStr1[0]==null) return //Выход из Функции
 			if (gpStr1[0].indexOf(":") == -1) {
 				alert("Неверный формат ввода даты.\nВы не ввели разделительный символ - ':'");
@@ -355,13 +383,12 @@ function Zadanie10New(){
 			gpStr1[2] = gpStr1[0].substr(gpStr1[0].indexOf(":")+1);
 			gpData1=proverkaVvodaDati(gpStr1[1]);
 			gpTime1=proverkaVvodaTime(gpStr1[2]);
-console.log(gpData1, gpTime1)
 			if ((gpTime1!=="Ошибка!!!") || (gpData1!=="Ошибка!!!")) break;
 		} while (true)
 			
 		// Ввод 2 даты
 		do {
-			gpStr2[0] = prompt("Введите вторую дату в формате: ДД-ММ-ГГГГ:чч-мм-сс", "11-11-1111:22-22-22");
+			gpStr2[0] = prompt("Введите вторую дату в формате: ДД-ММ-ГГГГ:чч-мм-сс", "11-11-2011:22-22-22");
 			if (gpStr2[0]==null) return //Выход из Функции
 			if (gpStr2[0].indexOf(":") == -1) {
 				alert("Неверный формат ввода даты.\nВы не ввели разделительный символ - ':'");
@@ -371,15 +398,15 @@ console.log(gpData1, gpTime1)
 			gpStr2[2] = gpStr2[0].substr(gpStr2[0].indexOf(":")+1);
 			gpData2=proverkaVvodaDati(gpStr2[1]);
 			gpTime2=proverkaVvodaTime(gpStr2[2]);
-console.log(gpData2, gpTime2)
-			if ((gpTime2!=="Ошибка!!!") || (gpDate2!=="Ошибка!!!")) break;
+			if ((gpTime2!=="Ошибка!!!") || (gpData2!=="Ошибка!!!")) break;
 		} while (true)
 			
-		
 		//Нужная функция
-		gpOtvet = raznicaTime(gpTime1[0],gpTime1[1],gpTime1[2],gpTime2[0],gpTime2[1],gpTime2[2])
+		// первый параметр определяет что выводится (0- только время)(1 - если дата и время)
+		//второй параметр определяет что считается (-1 - разница между датами) (1 + сумма дат)
+		gpOtvet = raznicaDataTime(1 , -1, gpData1, gpTime1, gpData2, gpTime2); 
 		//Вывод ответа
-		alert("Разница между "+gpStr1+" и "+gpStr2+" составляет: "+gpOtvet);
+		alert("Разница между "+gpStr1[0]+" и "+gpStr2[0]+"\n составляет: "+gpOtvet+"\n\nДля получения другого результата поменяйте аргументы функции.");
 	} while(true)
 }
 
