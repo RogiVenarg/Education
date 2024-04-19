@@ -127,6 +127,9 @@ button:hover{
 	cursor: pointer;
 	transition: 0.25s;
 }
+br~button{
+	margin: 5px;
+}
 footer {
 	padding: 15px 5px;
     background-color: #ffe03e;
