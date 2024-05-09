@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<noscript>
+		<style>
+			.noscripts {
+				display: block;
+			}
+			h1,main,footer{
+				display: none;
+			}
+		</style>
+	</noscript>
+	<title></title>
+</head>
+<body>
+	<header>
+		<h1>Домашнее задание №6</h1>
+		<div class="noscripts">
+			<p>
+				В вашем браузуре отключены скрипты. <br>
+				Включите выполнение скриптов для корректной работы сайта.
+			</p>
+		</div>
+	</header>
+	<main>
+		<section class="zadan">
+			<div>
+				<h2>Задание 1</h2>
+				<p>
+					Создать объект, описывающий автомобиль (производитель,
+					модель, год выпуска, средняя скорость), и следующие функции
+					для работы с этим объектом.
+				</p>
+				<ul>
+					<li>Функция для вывода на экран информации об автомобиле.</li>
+					<li>
+						Функция для подсчета необходимого времени для пре-
+						одоления переданного расстояния со средней скоростью.
+						Учтите, что через каждые 4 часа дороги водителю необхо-
+						димо делать перерыв на 1 час.
+					</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie1_1()">Вывод информации</button>
+					<input type="checkbox" id="firstZadanie_1">
+					<label for="firstZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie1_2()">Расчет времени движения</button>
+					<input type="checkbox" id="firstZadanie_2">
+					<label for="firstZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kOneZadan">
+				<label for="kOneZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 2</h2>
+				<p>
+					Создать объект, хранящий в себе отдельно числитель и знаменатель
+					дроби, и следующие функции для работы с этим объектом.
+				</p>
+				<ul>
+					<li>Функция сложения 2-х объектов-дробей.</li>
+					<li>Функция сложения 2-х объектов-дробей.</li>
+					<li>Функция умножения 2-х объектов-дробей.</li>
+					<li>Функция деления 2-х объектов-дробей.</li>
+					<li>Функция сокращения объекта-дроби.</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie2_1()">Сложение дробей</button>
+					<input type="checkbox" id="secondZadanie_1">
+					<label for="secondZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_2()">Вычитание дробей</button>
+					<input type="checkbox" id="secondZadanie_2">
+					<label for="secondZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_3()">Умножение дробей</button>
+					<input type="checkbox" id="secondZadanie_3">
+					<label for="secondZadanie_3" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_4()">Деление дробей</button>
+					<input type="checkbox" id="secondZadanie_4">
+					<label for="secondZadanie_4" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_5()">Сокращение дроби</button>
+					<input type="checkbox" id="secondZadanie_5">
+					<label for="secondZadanie_5" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kTwoZadan">
+				<label for="kTwoZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 3</h2>
+				<p>
+					Создать объект, описывающий время (часы, минуты, секунды), 
+					и следующие функции для работы с этим объектом.
+				</p>
+				<ul>
+					<li>Функция вывода времени на экран.</li>
+					<li>Функция изменения времени на переданное количество секунд.</li>
+					<li>Функция изменения времени на переданное количество минут.</li>
+					<li>Функция изменения времени на переданное количество часов.</li>
+				</ul>
+				<p>
+					Учтите, что в последних 3-х функциях, при изменении одной
+					части времени, может измениться и другая. Например: если ко
+					времени «20:30:45» добавить 30 секунд, то должно получиться
+					«20:31:15», а не «20:30:75».
+				</p>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie3_1()">Вывод времени</button>
+					<input type="checkbox" id="thirdZadanie_1">
+					<label for="thirdZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie3_2()">Изменить время на секунды</button>
+					<input type="checkbox" id="thirdZadanie_2">
+					<label for="thirdZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie3_3()">Изменить время на минуты</button>
+					<input type="checkbox" id="thirdZadanie_3">
+					<label for="thirdZadanie_3" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie3_4()">Изменить время на часы</button>
+					<input type="checkbox" id="thirdZadanie_4">
+					<label for="thirdZadanie_4" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kThreeZadan">
+				<label for="kThreeZadan" class="viewCode">Показать код</label>
+				<pre>
+					<code>
+Мой код
+	к данному 
+		заданию
+					</code>
+				</pre>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
+	</footer>
+</body>
+
+	<script src="js/script.js"></script>
+</html>
