@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<noscript>
+		<style>
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
+				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
+			}
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
+			}
+		</style>
+	</noscript>
+	<title>Домашнее задание №7</title>
+</head>
+<body>
+	<header>
+		<h1>Домашнее задание №7</h1>
+		<p class="noscripts">
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
+		</p>
+	</header>
+	<main>
+		<section class="zadan">
+			<div>
+				<h2>Задание 1</h2>
+				<p>
+					Создать массив «Список покупок». Каждый элемент массива
+					является объектом, который содержит название продукта, необходимое
+					количество и куплен или нет. Написать несколько функций 
+					для работы с таким массивом.
+				</p>
+				<ul>
+					<li>
+						Вывод всего списка на экран таким образом, чтобы сначала
+						шли некупленные продукты, а потом – купленные.
+					</li>
+					<li>
+						Добавление покупки в список. Учтите, что при добавлении
+						покупки с уже существующим в списке продуктом, необходимо 
+						увеличивать количество в существующей покупке, а не добавлять новую.
+					</li>
+					<li>
+						Покупка продукта. Функция принимает название продукта
+						и отмечает его как купленный.
+					</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie1_1()">Вывод списка</button>
+					<input type="checkbox" id="firstZadanie_1">
+					<label for="firstZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie1_2()">Добавить покупку</button>
+					<input type="checkbox" id="firstZadanie_2">
+					<label for="firstZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie1_3()">Купить продукт</button>
+					<input type="checkbox" id="firstZadanie_3">
+					<label for="firstZadanie_3" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kOneZadan">
+				<div>
+					<label for="kOneZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+						<span class="mainLev1">let</span> <span class="mainLev2">avto</span>
+					</code></pre>
+					<label for="kOneZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 2</h2>
+				<p>
+					Создать массив, описывающий чек в магазине. Каждый элемент
+					массива состоит из названия товара, количества и цены за
+					единицу товара. Написать следующие функции.
+				</p>
+				<ul>
+					<li>Распечатка чека на экран.</li>
+					<li>Подсчет общей суммы покупки.</li>
+					<li>Получение самой дорогой покупки в чеке.</li>
+					<li>Подсчет средней стоимости одного товара в чеке.</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie2_1()">Распечатать чек</button>
+					<input type="checkbox" id="secondZadanie_1">
+					<label for="secondZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_2()">Общая сумма</button>
+					<input type="checkbox" id="secondZadanie_2">
+					<label for="secondZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_3()">Самый дорогой</button>
+					<input type="checkbox" id="secondZadanie_3">
+					<label for="secondZadanie_3" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie2_4()">Средняя стоимость</button>
+					<input type="checkbox" id="secondZadanie_4">
+					<label for="secondZadanie_4" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kTwoZadan">
+				<div>
+					<label for="kTwoZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+					</code></pre>
+					<label for="kTwoZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 3</h2>
+				<p>
+					Создать массив css-стилей (цвет, размер шрифта, выравнивание, 
+					подчеркивание и т. д.). Каждый элемент массива – это объект, 
+					состоящий из двух свойств: название стиля и значение стиля.
+				</p>
+				<p>
+					Написать функцию, которая принимает массив стилей и
+					текст, и выводит этот текст с помощью document.write() в тегах
+					&lt;p&gt;&lt;/p&gt;, добавив в открывающий тег атрибут style со всеми 
+					стилями, перечисленными в массиве.
+				</p>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie3_1()">Вывести текст</button>
+					<input type="checkbox" id="thirdZadanie_1">
+					<label for="thirdZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="forExample">
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kThreeZadan">
+				<div>
+					<label for="kThreeZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+					</code></pre>
+					<label for="kThreeZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 4</h2>
+				<p>
+					Создать массив аудиторий академии. Объект-аудитория состоит 
+					из названия, количества посадочных мест (от 10 до 20) и
+					названия факультета, для которого она предназначена.
+				</p>
+				<p>Написать несколько функций для работы с ним.</p>
+				<ul>
+					<li>Вывод на экран всех аудиторий.</li>
+					<li>Вывод на экран аудиторий для указанного факультета.</li>
+					<li>
+						Вывод на экран только тех аудиторий, которые подходят для
+						переданной группы. Объект-группа состоит из названия,
+						количества студентов и названия факультета.
+					</li>
+					<li>Функция сортировки аудиторий по количеству мест.</li>
+					<li>Функция сортировки аудиторий по названию (по алфавиту).</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<div>
+					<button onclick="Zadanie4_2()">Аудитории факультета</button>
+					<input type="checkbox" id="fourthZadanie_2">
+					<label for="fourthZadanie_2" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie4_3()">Аудитории группы</button>
+					<input type="checkbox" id="fourthZadanie_3">
+					<label for="fourthZadanie_3" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie4_4()">Сортировка аудиторий<br>по кол-ву мест</button>
+					<input type="checkbox" id="fourthZadanie_4">
+					<label for="fourthZadanie_4" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie4_5()">Сортировка аудиторий<br>по названию</button>
+					<input type="checkbox" id="fourthZadanie_5">
+					<label for="fourthZadanie_5" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+				<div>
+					<button onclick="Zadanie4_1()">Все аудитории</button>
+					<input type="checkbox" id="fourthZadanie_1">
+					<label for="fourthZadanie_1" class="rezults">
+						<span><span></span></span>
+					</label>
+				</div>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kfourthZadan">
+				<div>
+					<label for="kfourthZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+					</code></pre>
+					<label for="kfourthZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+</html>
