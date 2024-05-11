@@ -2,29 +2,41 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 	<noscript>
 		<style>
-			.noscripts {
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
 				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
 			}
-			h1,main,footer{
-				display: none;
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
 			}
 		</style>
 	</noscript>
-	<title></title>
+	<title>Домашнее задание №6</title>
 </head>
 <body>
 	<header>
 		<h1>Домашнее задание №6</h1>
-		<div class="noscripts">
-			<p>
-				В вашем браузуре отключены скрипты. <br>
-				Включите выполнение скриптов для корректной работы сайта.
-			</p>
-		</div>
+		<p class="noscripts">
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
+		</p>
 	</header>
 	<main>
 		<section class="zadan">
@@ -63,14 +75,31 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kOneZadan">
-				<label for="kOneZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kOneZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+<span class="mainLev1">let</span> <span class="mainLev2">avto</span> = {
+  <span class="mainLev1">id:</span> "123456",
+  <span class="mainLev1">proizvod:</span> "BMW",
+  <span class="mainLev1">model:</span> "X6",
+  <span class="mainLev1">yearCreate:</span> "2024",
+  <span class="mainLev1">middleSpeed:</span> "60",
+	
+  <span class="mainLev1">info:</span> function(){ 
+    let myInfo = "Я автомобиль " + this.proizvod + " " + this.model + ".\nПроизведен в " + 
+      this.yearCreate + " году.\nСредняя скорость по российским дорогам составляет " + this.middleSpeed+" км/ч.";
+    console.log(myInfo);
+    alert(myInfo);
+  },
+	
+  <span class="mainLev1">timeToDrive:</span> function (way){
+    let myTime = way / this.middleSpeed;
+    console.log(myTime);
+    return myTime += Math.floor(myTime / 4);
+  }
+}</code></pre>
+					<label for="kOneZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -127,14 +156,157 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kTwoZadan">
-				<label for="kTwoZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kTwoZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">drobnoeChislo</span> {
+  <span class="mainLev1">constructor</span>(chislitel, znamenatel){
+    <span class="mainLev1">this.chislitel</span> = (znamenatel &lt; 0) ? -chislitel : chislitel;
+    <span class="mainLev1">this.znamenatel</span> = (znamenatel &lt; 0) ? -znamenatel : znamenatel;
+
+    <span class="mainLev2">this.valueOf</span> = function(){
+      return [this.chislitel, this.znamenatel];
+    }
+    <span class="mainLev2">this.toString</span> = function(){
+      return this.chislitel + "/" + this.znamenatel;
+    }
+    <span class="mainLev2">this.resultIzNull</span> = function () {
+      this.znamenatel = null;
+      this.chislitel = null;
+    }
+		
+    <span class="mainLev1">this.summa</span> = function(){
+      let kolArg = arguments.length;
+      let i = 0;
+      let chislo = [];
+			
+      if (kolArg == 0) return this.resultIzNull();
+      else if (kolArg > 1) {
+        this.chislitel = 0;
+        this.znamenatel = 1;
+      }
+			
+      while (i &lt; kolArg){
+        chislo = arguments[i].valueOf();
+        if (chislo.length == 2){
+          if (isNaN(Number(chislo[0]))) return this.resultIzNull();
+          else if (isNaN(Number(chislo[1])) || (chislo[1] == 0)) return this.resultIzNull();
+          else {
+            if (this.znamenatel == chislo[1]) this.chislitel += chislo[0];
+            else {
+              chislo[0] = chislo[0] * this.znamenatel
+              this.znamenatel = this.znamenatel * chislo[1];
+              this.chislitel = this.chislitel * chislo[1];
+              this.chislitel += chislo[0];
+            }
+          }
+        }
+        else return this.resultIzNull();
+        i++;
+      }
+      this.sokratit();
+    }
+		
+    <span class="mainLev1">this.vichest</span> = function(){
+      let kolArg = arguments.length;
+      let i = 1;
+      let chislo = [];
+			
+      if (kolArg == 0) return this.resultIzNull();
+      else if (kolArg == 1) {
+        chislo = [-arguments[0].valueOf()[0], arguments[0].valueOf()[1]]
+        this.summa(chislo);
+      }
+      else {
+        this.summa([0,1], arguments[0].valueOf());
+      }
+      if ((this.chislitel == null) || (this.znamenatel == null)) return;
+      while (i &lt; kolArg){
+        chislo = [-arguments[i].valueOf()[0], arguments[i].valueOf()[1]]
+        this.summa(chislo);
+        if ((this.chislitel == null) || (this.znamenatel == null)) return;
+        i++;
+      }
+      this.sokratit();
+    }
+		
+    <span class="mainLev1">this.proisv</span> = function (){
+      let kolArg = arguments.length;
+      let i = 0;
+      let chislo = [];
+			
+      if (kolArg == 0) return this.resultIzNull();
+      else if (kolArg > 1) {
+        this.chislitel = 1;
+        this.znamenatel = 1;
+      }
+      while (i &lt; kolArg){
+        chislo = arguments[i].valueOf();
+        if (chislo.length == 2){
+          if (isNaN(Number(chislo[0]))) return this.resultIzNull();
+          else if (isNaN(Number(chislo[1])) || (chislo[1] == 0)) return this.resultIzNull();
+          else {
+            this.chislitel = this.chislitel * chislo[0];
+            this.znamenatel = this.znamenatel * chislo[1];
+          }
+        }
+        else return this.resultIzNull();
+        i++;
+      }
+      this.sokratit();
+    }
+		
+    <span class="mainLev1">this.razdelit</span> = function (){
+      let kolArg = arguments.length;
+      let i = 1;
+      let chislo = [];
+			
+      if (kolArg == 0) return this.resultIzNull();
+      else if (kolArg == 1) {
+        if ((arguments[0].valueOf()[0] == 0) || (arguments[0].valueOf().length !== 2)) return this.resultIzNull();
+        chislo[0] = (arguments[0].valueOf()[0]&lt;0) ? -arguments[0].valueOf()[1] : arguments[0].valueOf()[1];
+        chislo[1] = (arguments[0].valueOf()[0]&lt;0) ? -arguments[0].valueOf()[0] : arguments[0].valueOf()[0];
+        this.proisv(chislo);
+      }
+      else {
+        if ((arguments[0].valueOf()[0] == 0) || (arguments[0].valueOf().length !== 2)) return this.resultIzNull();
+        this.proisv([1, 1], arguments[0].valueOf());
+      }
+      if ((this.chislitel == null) || (this.znamenatel == null)) return;
+      while (i &lt; kolArg){
+        if ((arguments[i].valueOf()[0] == 0) || (arguments[i].valueOf().length !== 2)) return this.resultIzNull();
+        chislo[0] = (arguments[i].valueOf()[0]&lt;0) ? -arguments[i].valueOf()[1] : arguments[i].valueOf()[1];
+        chislo[1] = (arguments[i].valueOf()[0]&lt;0) ? -arguments[i].valueOf()[0] : arguments[i].valueOf()[0];
+        this.proisv(chislo);
+        i++
+      }
+      this.sokratit();
+    }
+		
+    <span class="mainLev1">this.sokratit</span> = function() {
+      let chislo;
+      let i;
+			
+      if (this.chislitel&lt;0) chislo = (-this.chislitel&lt;this.znamenatel) ? -this.chislitel : this.znamenatel;
+      else chislo = (this.chislitel&lt;this.znamenatel) ? this.chislitel : this.znamenatel;
+      i = 2;
+      while (i&lt;=chislo){
+        if ((this.chislitel % i == 0) && (this.znamenatel % i == 0)){
+          this.chislitel = this.chislitel / i;
+          this.znamenatel = this.znamenatel / i;
+          chislo = chislo / i;
+          i = 2;
+        }
+        else i++
+      }
+    }
+  }
+}
+
+<span class="mainLev1">let drobi</span> = [<span class="mainLev2">new</span> <span class="mainLev1">drobnoeChislo</span>(<span class="mainLev2">-1, 2</span>), <span class="mainLev2">new</span> <span class="mainLev1">drobnoeChislo</span>(<span class="mainLev2">5, 3</span>)];
+					</code></pre>
+					<label for="kTwoZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -189,14 +361,69 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kThreeZadan">
-				<label for="kThreeZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kThreeZadan" class="viewCode">Показать код объекта</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">myTime</span> {
+ <span class="mainLev1">constructor</span>(hour, min, sec){
+    <span class="mainLev1">this.hour</span> = ((this.hour &lt; 0) || (this.min &lt; 0) || (this.sec &lt; 0)) ? null : (hour + Math.floor((min + Math.floor(sec/60)) / 60))% 24;
+    <span class="mainLev1">this.min</span> = ((this.hour &lt; 0) || (this.min &lt; 0) || (this.sec &lt; 0)) ? null : (min + Math.floor(sec / 60)) % 60;
+    <span class="mainLev1">this.sec</span> = ((this.hour &lt; 0) || (this.min &lt; 0) || (this.sec &lt; 0)) ? null : sec % 60;
+		
+    <span class="mainLev2">this.resultIzNull</span> = function () {
+      this.hour = null;
+      this.min = null;
+      this.sec = null;
+    }
+    <span class="mainLev2">this.timeInSecond</span> = function(hour, min, sec){
+      return hour*3600 + min*60 + sec
+    }
+    <span class="mainLev2">this.timeInFormat</span> = function(seco){
+      while (seco&lt;0) {seco += 24*3600}
+      seco = seco % (24*3600);
+				
+      this.hour = Math.floor(seco / 3600) % 24;
+      seco -= this.hour * 3600;
+      this.min = Math.floor(seco / 60);
+      this.sec = seco - this.min*60;
+    }
+		
+    <span class="mainLev1">this.toString</span> = function(){
+      let str;
+      str = (this.hour &lt; 10) ? "0" + this.hour + ":" : this.hour + ":";
+      str = (this.min &lt; 10) ? str + "0" + this.min + ":" : str + this.min + ":";
+      str = (this.sec &lt; 10) ? str + "0" + this.sec : str + this.sec;
+      return str;
+    }
+		
+    <span class="mainLev1">this.addSecond</span> = function(dopSec){
+      if ((isNaN(Number(dopSec))) || (dopSec == (dopSec % 1))) this.resultIzNull();
+      else {
+        dopSec = Number(dopSec);
+        this.timeInFormat( this.timeInSecond( this.hour, this.min, this.sec) + dopSec);
+      }
+    }
+    <span class="mainLev1">this.addMinuts</span> = function(dopMin){
+      if ((isNaN(Number(dopMin))) || (dopMin == (dopMin % 1))) this.resultIzNull();
+      else {
+        dopMin = Number(dopMin);
+        this.timeInFormat( this.timeInSecond( this.hour, this.min, this.sec) + dopMin*60);
+      }
+    }
+    <span class="mainLev1">this.addHours</span> = function(dopHour){
+      if ((isNaN(Number(dopHour))) || (dopHour == (dopHour % 1))) this.resultIzNull();
+      else {
+        dopHour = Number(dopHour);
+        this.timeInFormat( this.timeInSecond( this.hour, this.min, this.sec) + dopHour*3600);
+      }
+    }
+  }
+}
+
+<span class="mainLev1">let Time1</span> = <span class="mainLev2">new</span> <span class="mainLev1">myTime</span>(<span class="mainLev2">23, 122, 123</span>);
+					</code></pre>
+					<label for="kThreeZadan" class="hideCode">Скрыть код объекта</label>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -204,7 +431,6 @@
 		<p> Данное задание разработано с применением системы контроля версий Git</p>
 		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
 	</footer>
-</body>
-
 	<script src="js/script.js"></script>
+</body>
 </html>

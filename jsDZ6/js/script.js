@@ -189,9 +189,6 @@ class drobnoeChislo {
 let drobi = [new drobnoeChislo(-1, 2), new drobnoeChislo(5, 3)];
 let kolvoDrobei = drobi.length;
 
-// let drob1 = new drobnoeChislo(1, 2);
-// let drob2 = new drobnoeChislo(5, 3);
-
 function Zadanie2_1(){
 	let str;
 	
@@ -279,7 +276,6 @@ class myTime {
 		this.timeInFormat = function(seco){
 			while (seco<0) {seco += 24*3600}
 			seco = seco % (24*3600);
-			// while (seco>=24*3600) {seco -= 24*3600}
 				
 			this.hour = Math.floor(seco / 3600) % 24;
 			seco -= this.hour * 3600;

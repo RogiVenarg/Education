@@ -4,10 +4,7 @@
 	--main-color3: #E8C5E8;	
 }
 
-
-html {
-	font-family: arial, sans-serif;
-}
+html {font-family: arial, sans-serif;}
 body{
 	max-width: 1400px;
 	width: 98%;
@@ -93,7 +90,7 @@ section.zadan {
 }
 .zadan p{margin: 10px 0px;}
 .zadan input {
-	position: relative;
+	position: absolute;
 	z-index: -1;
 	opacity: 0;
 }
@@ -132,7 +129,7 @@ label{
 	margin-left: 5px;
 	margin-right: 7px;
 }
-.zadan span{
+.zadan label span{
 	text-indent: 0px;
 	vertical-align: middle;
 	display: inline-block;
@@ -143,7 +140,7 @@ label{
 	border-radius: 5px;
 	background-color: white;
 }
-.zadan span>span{
+.zadan label span>span{
 	display: block;
 	height: calc(100% - 6px);
 	width: 30%;
@@ -156,7 +153,6 @@ label{
 	filter: brightness(125%);
 	transition: 0.25s;
 }
-
 .zadan input:checked+label.rezults::after{
 	display: inline-block;
 	content: 'cправился';
@@ -171,17 +167,14 @@ label{
 	background-color: purple !important;
 	transition: 0.25s;
 }
-.zadan input:checked+label span{
-	border-color: purple !important;
-}
+.zadan input:checked+label span{border-color: purple !important;}
 
-.MyNewclass>span{
-	border-color: red !important;
-}
+.MyNewclass>span{border-color: red !important;}
 .MyNewclass>span>span{
 	border-color: red  !important;
 	background-color: red  !important;
 }
+
 .zadan input+label.MyNewclass::after{
 	display: inline-block;
 	content: 'не cправился';
@@ -189,7 +182,6 @@ label{
 	color: red;
 	margin-right: 0px;
 }
-
 div.myCode {
 	position: relative;
 	padding: 0px !important; 
@@ -202,6 +194,22 @@ div.myCode {
 	margin: 0px;
 	padding: 5px 15px;
 }
+.myCode label.hideCode{
+	display: none;
+	background-color: var(--main-color1);
+	color: black;
+	font-weight: bold;
+	margin: 0px;
+	padding: 5px 15px;
+}
+.myCode label.hideCode{display: none;}
+.myCode input:checked~div label.hideCode{display: block;}
+.myCode input:checked~div label.viewCode{display: none;}
+.myCode input:checked~div{
+	border: 1px solid purple;
+	  outline: 4px solid var(--main-color1);
+	  outline-offset: -5px;
+}
 .myCode input{
 	position: relative;
 	z-index: -1;
@@ -212,44 +220,78 @@ div.myCode {
 	margin: 0px;
 	padding: 5px 10px;
 }
-.myCode input:checked~label~pre{
+.myCode input:checked~div{
 	display: block;
-	position: absolute;
+	position: relative;
 	left: 0px;
 	right: 0px;
-	z-index: 2;
-	background-color: white; 
-	border: 4px solid purple;
-	text-align: left;
 }
-.noscripts {display: none;}
+.myCode input:checked~div pre{
+	display: block;
+	background-color: #f3f3c5; 
+	text-align: left;
+	white-space: pre-wrap;
+	overflow-y: scroll;
+	height: 24.5em;
+}
 
+.noscripts {display: none;}
+span.mainLev1{
+	color: red;
+	font-weight: bold;
+}
+span.mainLev2{
+	color: blue;
+	font-weight: bold;
+}
 
 
 
 /* Медиазапросы */
-@media (max-width: 1050px){
-	label{display: block;}
+@media (max-width: 1400px){
+	.zadan div.forButton {
+		display: block;
+	}
 }
-@media (max-width: 920px){
-	section.zadan {width: 100%;}
-	label{display: inline-block;}
-}
+
 @media (max-width: 580px){
 	label{
 		display: block;
 		text-indent: 0px;
 	}
 }
-@media (max-width: 400px){
-	h1{font-size: 1.1rem;}	
-	h1>img{
-		height: 20px;
-		width: 20px
-	}
-	h2{font-size: 1rem;}
+
+@media (max-width: 500px){
+	pre{font-size: 0.85rem;}
 }
-@media (max-width: 318px){
-	.zadan label::before{display: block;}
-	.zadan label::after{display: block;	}
+
+@media (max-width: 450px){
+	h1{font-size: 1.3rem;}	
+	h2{font-size: 1.1rem;}
+	.zadan label.rezults::before {display: block;}
+	.zadan button {
+		display: block;
+		width: 250px;
+		text-shadow: none;
+		margin: 5px auto 5px auto;
+		font-size: 0.95rem;
+	}
+	pre{font-size: 0.75rem;}
+}
+
+@media (max-width: 400px){
+	pre{font-size: 0.6rem;}
+}
+@media (max-width: 300px){
+	/* .zadan label.rezults::before {display: block;} */
+	.zadan button {
+		display: block;
+		width: 220px;
+		text-shadow: none;
+		margin: 5px auto 5px auto;
+		font-size: 0.79rem;
+		font-weight: bold;
+	}
+	label{font-size: 0.79rem;}
+	pre{font-size: 0.5rem;}
 }
