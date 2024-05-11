@@ -6,9 +6,54 @@ for (var i = 0; i < gpElement.length; i++){
 	})	
 }
 
-// 1 задание		
+// 1 задание
+class pokupka {
+	#article = Math.floor(100000000 * Math.random());
+	constructor(name, needQuantity, buy){
+		this.name = name;
+		this.needQuantity = Number(needQuantity);
+		this.buy = buy;
+		
+		this.toString = function(){
+			let str;
+			
+			str = this.name + " - ";
+			str += (this.buy == false) ? "осталось купить " : "куплено ";
+			str += this.needQuantity + " ед.";
+			return str;
+		}
+	}
+}
+//Создание списка продуктов
+let mySpisok = [];
+mySpisok[0] = new pokupka("Хлеб", 2, false);
+mySpisok[1] = new pokupka("Молоко", 1, true);
+mySpisok[2] = new pokupka("Яйца", 10, false);
+mySpisok[3] = new pokupka("Кофе", 1, false);
+mySpisok[4] = new pokupka("Огурцы", 3, false);
+
+//Сортировка покупок в списке
+function mySpisokSort(gpSpisok){
+	let gpElement;
+	let quantityElements = gpSpisok.length;
+	
+	for (var i=0; i < quantityElements; i++){
+		if (gpSpisok[i].buy == true){
+			gpElement = gpSpisok[i];
+			gpSpisok.splice(i, 1);
+			gpSpisok[quantityElements-1] = gpElement;
+		}
+	}
+}
 function Zadanie1_1(){
-	alert(11);
+	let str;
+
+	mySpisokSort(mySpisok);
+	str = "Список покупок.\n"
+	for (var i = 0; i < mySpisok.length; i++){
+		str += mySpisok[i] + ";\n";
+	}
+	alert(str);
 }
 function Zadanie1_2(){
 	alert(12);
