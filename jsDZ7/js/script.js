@@ -56,10 +56,103 @@ function Zadanie1_1(){
 	alert(str);
 }
 function Zadanie1_2(){
-	alert(12);
+	let str;  			let gpQuantity;
+	let index1;
+	let newSpisok=[];
+	
+	//Ввод + проверка ввода данных
+	do{
+		str = prompt("Для добавления продукта в список покупок введите название продукта"+
+						" и его количество\nДанные введите в формате: НАЗВАНИЕ-КОЛИЧЕСТВО", 
+						"Помидоры-2");
+		index1 = str.indexOf("-");
+		if (index1 == -1) {
+			alert("Вы ввели данные не в том формате.\nПопробуйте еще раз.");
+			continue;
+		} 
+		gpQuantity = str.substr(index1 + 1);
+		str = str.substr(0, index1);
+		gpQuantity = Number(gpQuantity);
+		if (isNaN(gpQuantity) || (gpQuantity < 1) || (gpQuantity % 1 !== 0)){
+			alert("Вы неорректно ввели количество продукта.\nИспоьзуйте положительные"+
+					" целые числа.\nПопробуйте еще раз.");
+			continue;
+		}
+		break;
+	} while (true)
+	// Добавлеие покупки
+	mySpisokSort(mySpisok);
+	newSpisok = mySpisok.filter(item => item.name == str);
+	switch (newSpisok.length){
+		case 0:
+			mySpisok.push(new pokupka(str, gpQuantity, false));
+			break;
+		case 1:
+			index1 = mySpisok.indexOf(newSpisok[0]);
+			if	(mySpisok[index1].buy == false) mySpisok[index1].needQuantity += gpQuantity;
+			else mySpisok.push(new pokupka(str, gpQuantity, false));
+			break;
+		case 2:
+			index1 = mySpisok.indexOf(newSpisok[0]);
+			if (mySpisok[index1].buy == true) index1 = mySpisok.indexOf(newSpisok[1]);
+			if	(mySpisok[index1].buy == true) {
+				return alert("Произошла критическая ошибка чтения данных со списка."+
+								"\nВыполнение программы остановлено.");
+			}
+			mySpisok[index1].needQuantity += gpQuantity;
+			break;
+		default:
+			return alert("Произошла критическая ошибка чтения данных со списка."+
+							"\nВыполнение программы остановлено.");
+	}
+	//Оповещение о выполнени
+	alert("Введенный Вами продукт " + str + " в кол-ве " + gpQuantity + 
+			" ед. успешно добавлен в список покупок как спланированный к покупке продукт.");
 }
 function Zadanie1_3(){
-	alert(13);
+	let str;
+	let newSpisok=[];
+	let myIndex1; let myIndex2;
+	let i;
+	
+	mySpisokSort(mySpisok);
+	str = prompt("Введите название купленного продукта.", "Яйца");
+	
+	newSpisok = mySpisok.filter(item => item.name == str);
+	switch (newSpisok.length) {
+		case 0: // Название продукта в списке покупок не нашлось
+			return alert("Невозможно отметить несуществующий продукт как купленный."+
+							"\nВыполнение программы остановлено.");
+		case 1: // Нашелся один товар с введенным названием
+			myIndex1 = mySpisok.indexOf(newSpisok[0]);
+			if (newSpisok[0].buy == false) {
+				if (newSpisok[0].needQuantity == 1) mySpisok[myIndex1].buy = true;
+				else {
+					mySpisok[myIndex1].needQuantity--;
+					mySpisok.push(new pokupka(str, 1, true));
+				}
+			}
+			else return alert("Указанный Вами продукт уже куплен."+
+								"\nВыполнение программы остановлено.");
+			break;
+		case 2: // Нашлось два товара с введенным названием
+			if ((newSpisok[0].buy == false) && (newSpisok[1].buy == true)){
+				myIndex1 = mySpisok.indexOf(newSpisok[0]);
+				myIndex2 = mySpisok.indexOf(newSpisok[1]);
+			}
+			else return alert("Произошла критическая ошибка чтения данных со списка."+
+								"\nВыполнение программы остановлено.");
+			
+			mySpisok[myIndex2].needQuantity++;
+			if (newSpisok[0].needQuantity == 1)	mySpisok.splice(myIndex1, 1);
+			else mySpisok[myIndex1].needQuantity--;
+			break;
+		default: // Нашлось более двух товаров с введенным названием (ЭТО НЕВОЗМОЖНО!!!)
+			return alert("Произошла критическая ошибка чтения данных со списка."+
+							"\nВыполнение программы остановлено.");
+	}
+	//Оповещение о выполнени
+	alert("Одна единица продукта " + str + " куплена успешно.");
 }
 
 // 2 задание
