@@ -156,14 +156,81 @@ function Zadanie1_3(){
 }
 
 // 2 задание
+class myTovar{
+	#article = Math.floor(100000000 * Math.random());
+	constructor(name, needQuantity, cost){
+		this.name = name;
+		this.needQuantity = Number(needQuantity);
+		this.cost = Number(cost);
+		
+		this.toString = function(){
+			let str;
+			
+			str = this.name + " - ";
+			str += this.needQuantity + " ед., цена за ед. - ";
+			str += this.cost + " руб.";
+			return str;
+		}
+		
+	}
+}
+let tovarniiChek = [];
+tovarniiChek[0] = new myTovar("Хлеб", 2, 50);
+tovarniiChek[1] = new myTovar("Молоко", 1, 100);
+tovarniiChek[2] = new myTovar("Яйца", 20, 20);
+tovarniiChek[3] = new myTovar("Кофе", 1, 300);
+tovarniiChek[4] = new myTovar("Огурцы", 3, 150);
+
 function Zadanie2_1(){
-	alert(21);
+	let chek = "Чек:\n";
+	let i;
+	
+	for (i = 0; i < tovarniiChek.length; i++){
+		chek += tovarniiChek[i] + "\n";
+	}
+	alert(chek);
 }
 function Zadanie2_2(){
-	alert(22);
+	let itogSum = 0; 
+	let i;
+	
+	for (i = 0; i < tovarniiChek.length; i++){
+		itogSum += tovarniiChek[i].cost * tovarniiChek[i].needQuantity;
+	}
+	alert("Общая сумма покупки составляет - " + itogSum + " руб.");
 }
 function Zadanie2_3(){
-	alert(23);
+	let maxCost = []; 
+	let index = [];
+	let str;
+	let i;
+	
+	maxCost[0] = 0;
+	for (i = 0; i < tovarniiChek.length; i++){
+		if (maxCost[0] < (tovarniiChek[i].cost * tovarniiChek[i].needQuantity)) {
+			if (maxCost.length > 1){maxCost = []; index = [];}
+			maxCost[0] = tovarniiChek[i].cost * tovarniiChek[i].needQuantity;
+			index[0] = i;
+		}
+		else if (maxCost[0] == (tovarniiChek[i].cost * tovarniiChek[i].needQuantity)){
+			maxCost[maxCost.length] = tovarniiChek[i].cost * tovarniiChek[i].needQuantity;
+			index[index.length] = i;
+		}
+	console.log(i, maxCost, index);
+	}
+	console.log("Итог: ", maxCost, index);
+	//Вывод инфомации
+	if (maxCost.length > 1){
+		str = "Самые дорогие покупки в чеке:\n"
+		for (i = 0; i < maxCost.length; i++){
+			str += tovarniiChek[index[i]] + ";\n";
+		}
+		str = str.substr(0, str.length-3) + ".\nОбщие цены каждой из данных покупок" + 
+				" составляют - " +	maxCost[0] + " руб.";
+	}
+	else str = "Самая дорогая покупка в чеке.\n" + tovarniiChek[index[0]] + 
+				"\nОбщая цена покупки составляет " + maxCost[0] + " руб.";
+	alert(str);
 }
 function Zadanie2_4(){
 	alert(24);
