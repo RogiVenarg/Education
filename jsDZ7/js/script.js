@@ -233,16 +233,96 @@ function Zadanie2_3(){
 	alert(str);
 }
 function Zadanie2_4(){
-	alert(24);
+	let quantAll = 0;  let itogSum = 0; 
+	let i;
+	
+	for (i = 0; i < tovarniiChek.length; i++) {
+		quantAll += tovarniiChek[i].needQuantity;
+		itogSum += tovarniiChek[i].cost * tovarniiChek[i].needQuantity;
+	}
+	
+	alert("Средняя стоимост товара в чеке составляет - " + itogSum/quantAll + " руб.");
 }
 
 // 3 задание
+//Создаем объект стиля
+class oneStyle {
+	constructor (nameOfObj, nameOfStyle, myValue){
+		this.nameOfObj = nameOfObj;
+		this.nameOfStyle = nameOfStyle;
+		this.myValue = myValue;
+	
+		this.toString = function(a) {
+			console.log(arguments[0]);
+			switch (a){
+				case "first": 
+						return ' style = "' + this.nameOfStyle + ': ' + this.myValue + ';';
+				case "last": 
+						return ' ' + this.nameOfStyle + ': ' + this.myValue + ';"';
+				default: 
+						return ' ' + this.nameOfStyle + ': ' + this.myValue + ';';
+			}
+		}
+	}
+}
+//Создаем массив стилей
+let myStyles = [];
+myStyles[0] = new oneStyle("whiteColor", "color", "white");
+myStyles[1] = new oneStyle("fontArial", "font-family", "Arial");
+myStyles[2] = new oneStyle("font14px", "font-size", "14px");
+myStyles[3] = new oneStyle("textCenter", "text-align", "center");
+myStyles[4] = new oneStyle("textWhiteSolidUnderline", "text-decoration", "solid underline white");
+myStyles[5] = new oneStyle("margin0", "margin", "0px");
+myStyles[6] = new oneStyle("redBGC", "background-color", "red");
+myStyles[7] = new oneStyle("bold", "font-weight", "bold");
+myStyles[8] = new oneStyle("padding5", "padding", "5px");
+
+function dobavlenieStylyTextAsP(needStyle, needText){
+	let str;
+	let i;
+	
+	if (needStyle.length == 0) return undefined;
+	str = "<p" + needStyle[0].toString("first");
+	if (needStyle.length > 1){
+		for (i = 1; i < needStyle.length; i++){
+			if (i !== needStyle.length - 1) str += needStyle[i];
+			else str += needStyle[i].toString("last");
+		}
+	}
+	return str + ">" + needText + "</p>";
+}
+
 function Zadanie3_1(){
-	alert(31);
+	let gpStr;
+	let needPosition;
+	
+	gpStr = prompt("Введите текст который необходимо отобразить", "Текст для примера.");
+	if (gpStr == null) return;
+	
+	needPosition = document.getElementById("forViewDZ3");	needPosition.innerHTML = dobavlenieStylyTextAsP(myStyles, gpStr);
+	alert("Операция выполнена успешно.");
 }
 
 
 // 4 задание
+class auditors {
+	constructor(name, mecta, facultet){
+		this.name = name;
+		this.mecta = mecta;
+		this.facultet = facultet;
+		
+		this.
+	}
+}
+class auditors {
+	constructor(name, mecta, facultet){
+		this.name = name;
+		this.mecta = mecta;
+		this.facultet = facultet;
+		
+		this.
+	}
+}
 function Zadanie4_1(){
 	alert(41);
 }
