@@ -311,30 +311,126 @@ class auditors {
 		this.mecta = mecta;
 		this.facultet = facultet;
 		
-		this.
+		this.toString = function (){
+			return this.name + " емкостью - " + this.mecta + " мест, факультет - " + this.facultet
+		}
 	}
 }
-class auditors {
-	constructor(name, mecta, facultet){
+class studyGroup {
+	constructor(name, students, facultet){
 		this.name = name;
-		this.mecta = mecta;
+		this.students = students;
 		this.facultet = facultet;
 		
-		this.
+		// this.
 	}
 }
+
+let myAuditories =[];
+myAuditories[0] = new auditors("Кабинет 101", Math.floor(10+11*Math.random()), "Физика");
+myAuditories[1] = new auditors("Кабинет 102", Math.floor(10+11*Math.random()), "Физика");
+myAuditories[2] = new auditors("Кабинет 103", Math.floor(10+11*Math.random()), "Информатика");
+myAuditories[3] = new auditors("Кабинет 104", Math.floor(10+11*Math.random()), "Информатика");
+myAuditories[4] = new auditors("Кабинет 105", Math.floor(10+11*Math.random()), "Математика");
+myAuditories[5] = new auditors("Кабинет 106", Math.floor(10+11*Math.random()), "Математика");
+myAuditories[6] = new auditors("Кабинет 107", Math.floor(10+11*Math.random()), "Математика");
+
+let myGroups = [];
+myGroups[0] = new studyGroup("группа 112", Math.floor(10+11*Math.random()), "Физика");
+myGroups[1] = new studyGroup("группа 234", Math.floor(11*Math.random()), "Информатика");
+myGroups[2] = new studyGroup("группа 345", Math.floor(15+6*Math.random()), "Математика");
+
 function Zadanie4_1(){
-	alert(41);
+	let str = "Все имеющиеся аудитории:\n";
+	let i;
+	
+	for (i = 0; i < myAuditories.length; i++){
+		str += (i+1) + ". " + myAuditories[i] + ";\n";
+	}
+	alert(str);
 }
 function Zadanie4_2(){
-	alert(42);
+	let str;
+	let facult;
+	let i; let ii = 1;
+	
+	facult = prompt("Введите название интересующего Вас факультета.", "Математика");
+	str = "Все имеющиеся аудитории факультета " + facult + ":\n";
+	for (i = 0; i < myAuditories.length; i++){
+		if (myAuditories[i].facultet == facult){
+			str += (ii) + ". " + myAuditories[i] + ";\n";	
+			ii++;
+		}
+	}
+	alert(str);
 }
+
+function selectForGroup(needGroup, gpAuditories){
+	let i; let ii = 1;
+	let gpStr = "";
+	
+	for (i = 0; i < gpAuditories.length; i++){
+		if ((gpAuditories[i].facultet == needGroup.facultet) && (gpAuditories[i].mecta >= needGroup.students)){
+			gpStr += ii + ". " + gpAuditories[i] + ";\n";
+			ii++
+		}
+	}
+	if (gpStr == "") return " не подходит и одна из аудиторий.";
+	else return " подходят:\n" + gpStr;
+}
+
 function Zadanie4_3(){
-	alert(43);
+	let gpGroups = []; vibrGroup = {};
+	let str; let strGroups = "";
+	let i;
+	
+	//опредделяем названия имеющихся групп
+	for (i = 0; i < myGroups.length; i++){
+		gpGroups[i] = myGroups[i].name;
+		strGroups += "\n" + myGroups[i].name + ";";
+	}
+	do {
+		// просим выбрать нужную группу для определения аудиторий
+		str = prompt("Для вывода подходящих аудиторий введите название группы.\n" + 
+						"Список всех имеющихся групп: " + strGroups, "группа 112");
+		
+		// Провеяем есть ли введенная группа
+		if (str == null) return;
+		if (gpGroups.indexOf(str) == -1) alert("Введенная Вами группа не существует.")
+		else {
+			vibrGroup = myGroups[gpGroups.indexOf(str)];
+			break;
+		}
+	} while (true)
+	
+	// определяем подходящие аудитории по факультету и кол-ву мест + формируем ответ
+	str = "Для введенной Вами группы "+ str + selectForGroup(vibrGroup, myAuditories);
+	
+	// Вывод ответа
+	alert(str);
+	console.log(myAuditories);
+	console.log(myGroups);
+}
+function inTxt(gpAuditories){
+	let gpStr=""
+	let i;
+	
+	for (i = 0; i < gpAuditories.length; i++){
+		gpStr += (i+1) + ". " + gpAuditories[i] + ";\n";
+	}
+	return gpStr;
 }
 function Zadanie4_4(){
-	alert(44);
+	let str = "Список аудиторий до сортиовки:\n" + inTxt(myAuditories);
+
+	myAuditories = myAuditories.sort((a, b) => a.mecta - b.mecta);
+	str += "Список аудиторий после сортиовки:\n" + inTxt(myAuditories);
+	alert(str);
 }
 function Zadanie4_5(){
-	alert(45);
+	let str = "Список аудиторий до сортиовки:\n" + inTxt(myAuditories);
+	
+	myAuditories = myAuditories.sort();
+	str += "Список аудиторий после сортиовки:\n" + inTxt(myAuditories);
+	alert(str);
 }
