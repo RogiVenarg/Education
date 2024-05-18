@@ -321,8 +321,6 @@ class studyGroup {
 		this.name = name;
 		this.students = students;
 		this.facultet = facultet;
-		
-		// this.
 	}
 }
 
