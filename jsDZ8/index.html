@@ -2,30 +2,41 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/script.js"></script>
 	<noscript>
 		<style>
-			.noscripts {
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
 				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
 			}
-			h1,main,footer{
-				display: none;
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
 			}
 		</style>
 	</noscript>
-	<title></title>
+	<title>Домашнее задание №8</title>
 </head>
 <body>
 	<header>
 		<h1>Домашнее задание №8</h1>
-		<div class="noscripts">
-			<p>
-				В вашем браузуре отключены скрипты. <br>
-				Включите выполнение скриптов для корректной работы сайта.
-			</p>
-		</div>
+		<p class="noscripts">
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
+		</p>
 	</header>
 	<main>
 		<section class="zadan">
@@ -37,7 +48,7 @@
 					количество других знаков.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie1()">Проверить</button>
 				<input type="checkbox" id="firstZadanie">
 				<label for="firstZadanie" class="rezults">
@@ -46,14 +57,23 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kOneZadan">
-				<label for="kOneZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kOneZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span>  <span class="mainLev2">strStatistic</span>(myStr){
+  <span class="mainLev2">const</span> regLet = /[a-zA-Zа-яА-Я]/; <span class="mainLev2">const</span> regNum = /\d/;
+  <span class="mainLev2">let</span> qLet = 0; <span class="mainLev2">let</span> qNum = 0; <span class="mainLev2">let</span> qOther;
+  <span class="mainLev2">let</span> i;
+	
+  <span class="mainLev2">for</span> (i = 0; i &lt; myStr.length; i++){
+    <span class="mainLev2">if</span> (regLet.test(myStr[i])) qLet++;
+    <span class="mainLev2">else if</span> (regNum.test(myStr[i])) qNum++;
+  }
+  qOther = myStr.length - qLet - qNum;
+  <span class="mainLev1">return</span> "количество букв - " + qLet + ";\nколичество цифр - " + qNum + ";\nколичество других знаков - " + qOther + ".";
+}</code></pre>
+				<label for="kOneZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -65,7 +85,7 @@
 					Например: 35 - тридцать пять, 89 - восемьдесят девять, 12 - двенадцать.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie2()">Проверить</button>
 				<input type="checkbox" id="secondZadanie">
 				<label for="secondZadanie" class="rezults">
@@ -74,14 +94,62 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kTwoZadan">
-				<label for="kTwoZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kTwoZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">nuberInTxt</span>(myNum){
+  <span class="mainLev2">let</span> str = "";
+  <span class="mainLev2">let</span> myCif;
+	
+  <span class="mainLev2">if</span> (myNum == 0) <span class="mainLev1">return</span> "ноль";
+  <span class="mainLev2">else if</span> ((myNum > 9) && (myNum &lt; 20)){
+    <span class="mainLev2">switch</span> (myNum){
+      case 10: str = "десять "; <span class="mainLev2">break</span>;
+      case 11: str = "одиннадцать "; <span class="mainLev2">break</span>;
+      case 12: str = "двенадцать "; <span class="mainLev2">break</span>;
+      case 13: str = "тринадцать "; <span class="mainLev2">break</span>;
+      case 14: str = "четырнадцать "; <span class="mainLev2">break</span>;
+      case 15: str = "пятнадцать "; <span class="mainLev2">break</span>;
+      case 16: str = "шестнадцать "; <span class="mainLev2">break</span>;
+      case 17: str = "семнадцать "; <span class="mainLev2">break</span>;
+      case 18: str = "восемнадцать "; <span class="mainLev2">break</span>;
+      case 19: str = "девятнадцать "; <span class="mainLev2">break</span>;
+    }
+  }
+  <span class="mainLev2">else if</span> (myNum > 19){
+    myCif = Math.floor(myNum / 10);
+		
+    <span class="mainLev2">switch</span> (myCif){
+      case 2: str = "двадцать "; <span class="mainLev2">break</span>;
+      case 3: str = "тридцать "; <span class="mainLev2">break</span>;
+      case 4: str = "сорок "; <span class="mainLev2">break</span>;
+      case 5: str = "пятдесят "; <span class="mainLev2">break</span>;
+      case 6: str = "шестьдесят "; <span class="mainLev2">break</span>;
+      case 7: str = "семьдесят "; <span class="mainLev2">break</span>;
+      case 8: str = "восемьдесят "; <span class="mainLev2">break</span>;
+      case 9: str = "девяносто "; <span class="mainLev2">break</span>;
+      default: <span class="mainLev1">return</span> "Неверно указано число."
+    }
+    myNum -= myCif*10
+  }
+	
+  <span class="mainLev2">if</span> (myNum &lt; 10){
+    <span class="mainLev2">switch</span> (myNum){
+      case 1: str += "один "; <span class="mainLev2">break</span>;
+      case 2: str += "два "; <span class="mainLev2">break</span>;
+      case 3: str += "три "; <span class="mainLev2">break</span>;
+      case 4: str += "четыре "; <span class="mainLev2">break</span>;
+      case 5: str += "пять "; <span class="mainLev2">break</span>;
+      case 6: str += "шесть "; <span class="mainLev2">break</span>;
+      case 7: str += "семь "; <span class="mainLev2">break</span>;
+      case 8: str += "восемь "; <span class="mainLev2">break</span>;
+      case 9: str += "девять "; <span class="mainLev2">break</span>;
+    }
+  }
+  <span class="mainLev1">return</span> str.substr(0, str.length-1);
+}</code></pre>
+					<label for="kTwoZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -93,7 +161,7 @@
 					цифры – на знак нижнего подчеркивания.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie3()">Проверить</button>
 				<input type="checkbox" id="thirdZadanie">
 				<label for="thirdZadanie" class="rezults">
@@ -102,14 +170,26 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kThreeZadan">
-				<label for="kThreeZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kThreeZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">myIzmenReg</span>(strok){
+  <span class="mainLev2">let</span> myStr = strok.split("");
+  <span class="mainLev2">let</span> i;
+
+  strok = "";
+  <span class="mainLev2">for</span> (i = 0; i &lt; myStr.length; i++){
+    <span class="mainLev2">if</span> (isNaN(Number(myStr[i])) && !(myStr[i] === " ")){
+      <span class="mainLev2">if</span> (myStr[i].toUpperCase() === myStr[i]) myStr[i] = myStr[i].toLowerCase();
+      <span class="mainLev2">else</span> myStr[i] = myStr[i].toUpperCase();
+    }
+    <span class="mainLev2">else</span> myStr[i] = "_";
+    strok = strok.concat(myStr[i]);
+  }
+  <span class="mainLev1">return</span> strok;
+}</code></pre>
+					<label for="kThreeZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -118,11 +198,11 @@
 				<p>
 					Написать функцию, которая преобразует названия css-
 					стилей с дефисом в название в СamelСase стиле: font-size
-					в fontSize, background-color в backgroundColor, textalign
+					в fontSize, background-color в backgroundColor, text-align
 					в textAlign.
 				</p>	
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie4()">Проверить</button>
 				<input type="checkbox" id="fourthZadanie">
 				<label for="fourthZadanie" class="rezults">
@@ -131,14 +211,26 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kFourZadan">
-				<label for="kFourZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kFourZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">inCamelCase</span>(myStr){
+  <span class="mainLev2">let</span> byPath = myStr.split("-");
+  <span class="mainLev2">let</span> oneSimbol;
+  <span class="mainLev2">let</span> i;
+	
+  myStr = byPath[0].toLowerCase();
+  <span class="mainLev2">for</span> (i = 1; i &lt; byPath.length; i++){
+    byPath[i] = byPath[i].toLowerCase();
+    oneSimbol = byPath[i][0].toUpperCase();
+    byPath[i] = byPath[i].substr(1, byPath[i].length);
+    byPath[i] = oneSimbol + byPath[i];
+    myStr = myStr.concat(byPath[i]);
+  }	
+  <span class="mainLev1">return</span> myStr;
+}</code></pre>
+					<label for="kFourZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -151,7 +243,7 @@
 					в ООП.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie5()">Проверить</button>
 				<input type="checkbox" id="fifthZadanie">
 				<label for="fifthZadanie" class="rezults">
@@ -160,26 +252,37 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kFiveZadan">
-				<label for="kFiveZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kFiveZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">inAbr</span>(myStr){
+  <span class="mainLev2">let</span> str = "";
+  <span class="mainLev2">let</span> byPath;
+	
+  <span class="mainLev2">do</span> {
+    <span class="mainLev2">if</span> (myStr.indexOf(" ") == -1) <span class="mainLev2">break</span>;
+    myStr = myStr.replace(" ", "-")
+  } <span class="mainLev2">while</span>(true);
+  byPath = myStr.split("-");
+	
+  <span class="mainLev2">for</span> (i = 0; i &lt; byPath.length; i++){
+    str += byPath[i].substr(0, 1).toUpperCase()
+  }
+  <span class="mainLev1">return</span> str;
+}</code></pre>
+					<label for="kFiveZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
 			<div>
 				<h2>Задание 6</h2>
 				<p>
-					Написать функцию, которая принимает любое коли-
-					чество строк, объединяет их в одну длинную строку и
-					возвращает ее.
+					Написать функцию, которая принимает любое количество строк, 
+					объединяет их в одну длинную строку и возвращает ее.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie6()">Проверить</button>
 				<input type="checkbox" id="sixthZadanie">
 				<label for="sixthZadanie" class="rezults">
@@ -188,14 +291,18 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kSixZadan">
-				<label for="kSixZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kSixZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">inOneStr</span>(myArr){
+  <span class="mainLev2">let</span> str = "";
+  <span class="mainLev2">let</span> i;
+	
+  <span class="mainLev2">for</span> (i = 0; i &lt; myArr.length; i++){str += myArr[i] + " ";}
+  <span class="mainLev1">return</span> str;
+}</code></pre>
+					<label for="kSixZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -208,7 +315,7 @@
 					пример и возвращает результат.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie7()">Проверить</button>
 				<input type="checkbox" id="sevenZadanie">
 				<label for="sevenZadanie" class="rezults">
@@ -217,26 +324,46 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kSevenZadan">
-				<label for="kSevenZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kSevenZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">solvePrimer</span>(str){
+  <span class="mainLev2">let</span> indexZnak;
+  <span class="mainLev2">let</span> Znak;
+  <span class="mainLev2">let</span> firstNumber; let secondNumber;
+	
+  <span class="mainLev2">if</span> (str.indexOf("+") !== -1) Znak = "+";
+  <span class="mainLev2">if</span> (str.indexOf("-") !== -1) Znak = "-";
+  <span class="mainLev2">if</span> (str.indexOf("*") !== -1) Znak = "*";
+  <span class="mainLev2">if</span> (str.indexOf("/") !== -1) Znak = "/";
+  indexZnak = str.indexOf(Znak);
+				
+  firstNumber = Number(str.substr(0,indexZnak));
+  secondNumber = Number(str.substring(indexZnak+1));
+  <span class="mainLev2">if</span> (isNaN(firstNumber) || isNaN(secondNumber)) <span class="mainLev1">return</span> false;
+				
+  <span class="mainLev2">switch</span> (Znak) {
+    case "+": <span class="mainLev1">return</span> firstNumber + secondNumber; 
+    case "-": <span class="mainLev1">return</span> firstNumber - secondNumber; 
+    case "*": <span class="mainLev1">return</span> firstNumber * secondNumber; 
+    case "/": <span class="mainLev1">return</span> firstNumber / secondNumber; 
+    default:  <span class="mainLev1">return</span> false;
+  }
+}</code></pre>
+				<label for="kSevenZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
 			<div>
 				<h2>Задание 8</h2>
 				<p>
-					Написать функцию, которая получает url и выводит под-
-					робную информацию о нем.
-					Например: url “https://itstep.org/ua/about”, информация "протокол: https, домен: instep.org, путь: ua/about".
+					Написать функцию, которая получает url и выводит подробную 
+					информацию о нем.Например: url “https://itstep.org/ua/about”, 
+					информация "протокол: https, домен: instep.org, путь: ua/about".
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie8()">Проверить</button>
 				<input type="checkbox" id="eightZadanie">
 				<label for="eightZadanie" class="rezults">
@@ -245,28 +372,63 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kEightZadan">
-				<label for="kEightZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kEightZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">urlInfo</span>(fullURL){
+  <span class="mainLev2">let</span> protocol;	<span class="mainLev2">let</span> domen;	<span class="mainLev2">let</span> path;
+  <span class="mainLev2">let</span> fileName;	<span class="mainLev2">let</span> parametr;	<span class="mainLev2">let</span> iakor;
+  <span class="mainLev2">let</span> str = "";
+	
+  <span class="mainLev2">if</span> (fullURL.indexOf(":") !== -1) {
+    protocol = fullURL.substr(0, fullURL.indexOf(":"));
+    fullURL = fullURL.substr(fullURL.indexOf(":")+3);
+  }
+  <span class="mainLev2">else</span> <span class="mainLev1">return</span> false;
+  <span class="mainLev2">if</span> (fullURL.indexOf("/") !== -1) {
+    domen = fullURL.substr(0, fullURL.indexOf("/"));
+    fullURL = fullURL.substr(fullURL.indexOf("/")+1);
+  }
+  <span class="mainLev2">else</span> {		
+    domen = fullURL;
+    fullURL = "";
+  }
+  <span class="mainLev2">if</span> (fullURL.lastIndexOf("/") !== -1) {
+    path = fullURL.substr(0, fullURL.lastIndexOf("/"));
+    fullURL = fullURL.substr(fullURL.lastIndexOf("/")+1);
+  }
+  <span class="mainLev2">else</span> path = "нет";
+  <span class="mainLev2">if</span> (fullURL.lastIndexOf("#") !== -1) {
+    iakor = fullURL.substr(fullURL.lastIndexOf("#")+1);
+    fullURL = fullURL.substr(0, fullURL.lastIndexOf("#"));
+  }
+  <span class="mainLev2">else</span> iakor = "нет";
+  <span class="mainLev2">if</span> (fullURL.lastIndexOf("?") !== -1) {
+    parametr = fullURL.substr(fullURL.lastIndexOf("?")+1);
+    fullURL = fullURL.substr(0, fullURL.lastIndexOf("?"));
+  }
+  <span class="mainLev2">else</span> parametr = "нет";
+  <span class="mainLev2">if</span> (fullURL.length == 0) fileName = "нет";
+  <span class="mainLev2">else</span> fileName = fullURL;
+	
+  <span class="mainLev1">return</span> "протокол: " + protocol + ";\nдомен: " + domen + ";\nпуть: " + path +   ";\nимя страницы: " + fileName + ";\nпараметр: " + parametr + ";\nякорь: " + iakor +  ".";
+}</code></pre>
+					<label for="kEightZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
 			<div>
 				<h2>Задание 9</h2>
 				<p>
-					Написать функцию, которая принимает строку и раздели-
-					тель и возвращает массив подстрок, разбитых с помощью
+					Написать функцию, которая принимает строку и разделитель 
+					и возвращает массив подстрок, разбитых с помощью
 					указанного разделителя.
 					Например: строка "10/08/2020", разделитель “/”, результат:
 					“10”, "08", “2020”.
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie9()">Проверить</button>
 				<input type="checkbox" id="ninthZadanie">
 				<label for="ninthZadanie" class="rezults">
@@ -275,14 +437,14 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kNineZadan">
-				<label for="kNineZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kNineZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">mySplit</span>(myStr, myRazd){
+  <span class="mainLev1">return</span> myStr.split(myRazd);
+}</code></pre>
+					<label for="kNineZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 		<section class="zadan">
@@ -291,15 +453,15 @@
 				<p>
 					Написать функцию вывода текста по заданному шаблону.
 					Функция принимает первым параметром шаблон, в тексте
-					которого может использоваться %, после символа % ука-
-					зывается индекс входного параметра. При выводе вместо %индекс
+					которого может использоваться %, после символа % указывается 
+					индекс входного параметра. При выводе вместо %индекс
 					необходимо вывести значение соответствующего
 					входного параметра.
 					Например: print("Today is %1 %2. %3. %4", "Monday", 10, 8, 2020)
 					должна вывести "Today is Monday 10.8.2020".
 				</p>
 			</div>
-			<div>
+			<div class="forButton">
 				<button onclick="Zadanie10()">Проверить</button>
 				<input type="checkbox" id="tenthZadanie">
 				<label for="tenthZadanie" class="rezults">
@@ -308,14 +470,38 @@
 			</div>
 			<div class="myCode">
 				<input type="checkbox" id="kTenZadan">
-				<label for="kTenZadan" class="viewCode">Показать код</label>
-				<pre>
-					<code>
-Мой код
-	к данному 
-		заданию
-					</code>
-				</pre>
+				<div>
+					<label for="kTenZadan" class="viewCode">Показать код</label>
+					<pre><code>
+<span class="mainLev1">function</span> <span class="mainLev2">vivodPoMacke</span>(){
+  <span class="mainLev2">if</span> (arguments.length == 0) <span class="mainLev1">return</span> false;
+  <span class="mainLev2">let</span> parametrs = arguments[0];
+  <span class="mainLev2">if</span> (parametrs.length == 0) <span class="mainLev1">return</span> false;
+  <span class="mainLev2">let</span> str = parametrs[0];
+  <span class="mainLev2">let</span> myIndex; <span class="mainLev2">let</span> valueIndex;
+  <span class="mainLev2">let</span> first;   <span class="mainLev2">let</span> second;
+	
+  <span class="mainLev2">while</span> (str.indexOf("%") !== -1){
+    myIndex = str.indexOf("%");
+    valueIndex = 0;
+    i = 2;
+    <span class="mainLev2">do</span> {
+      <span class="mainLev2">if</span> (str.indexOf("%")+i > str.length) <span class="mainLev2">break</span>;
+      valueIndex = str.substr(myIndex+i-1, 1);
+      <span class="mainLev2">if</span> ((Number(valueIndex > 0)) && (Number(valueIndex) &lt; 10)) i++;
+      <span class="mainLev2">else break</span>;
+    } <span class="mainLev2">while</span> (true)
+    valueIndex = Number(str.substr(myIndex+1, i - 1)); 
+    <span class="mainLev2">if</span> ((valueIndex &lt; 1) || (valueIndex > parametrs.length-1)) <span class="mainLev1">return</span> false;
+    first = str.substr(0, myIndex);
+    second = str.substr(myIndex+i-1, str.length); 
+    str = first + parametrs[valueIndex] + second;
+    <span class="mainLev2">if</span> (str.length > 10000) <span class="mainLev1">return</span> false;
+  }
+  <span class="mainLev1">return</span> str;
+}</code></pre>
+					<label for="kTenZadan" class="hideCode">Скрыть код</label>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -323,5 +509,6 @@
 		<p> Данное задание разработано с применением системы контроля версий Git</p>
 		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
 	</footer>
+	<script src="js/script.js"></script>
 </body>
 </html>
