@@ -175,8 +175,46 @@ function Zadanie2(){
 }
 
 // 3 задание
+class CssClass {
+	#myStyle = [];
+	constructor (name){
+		this.name = name;
+	}
+	pushMyStyle = function(name, val){
+		let str = name + ": " + val + ";\n"
+		this.#myStyle.push(str);
+	}
+	delMyStyle = function(ind){
+		ind = Number(ind);
+		if ((isNaN(ind)) || (ind < 0) || (ind > this.#myStyle.length - 1)) return undefined;
+		else this.#myStyle.splice(ind, 1);
+	}
+	getCss = function(){
+		let str = "."
+		let i;
+		str += this.name + "{\n";
+		for (i = 0; i < this.#myStyle.length; i++){
+			str += this.#myStyle[i];
+		}
+		str += "}";
+		return str;
+	}
+}
+
+let myNewClassCSS = new CssClass("wrapper");
+myNewClassCSS.pushMyStyle("display", "flex");
+myNewClassCSS.pushMyStyle("margin", "5px");
+
 function Zadanie3(){
-	alert("У тебя не плохо получается 3");
+	let str = "Первоначальный объект созданнй на основе CSS класса:\n";
+	str += myNewClassCSS.getCss();
+	myNewClassCSS.pushMyStyle("width", "50%");
+	str += "\n\nПосле добавления нового стиля:\n";
+	str += myNewClassCSS.getCss();
+	myNewClassCSS.delMyStyle(1);
+	str += "\n\nПосле удаления второго стиля:\n";
+	str += myNewClassCSS.getCss();
+	alert(str);
 }
 
 // 4 задание
