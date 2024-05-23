@@ -55,7 +55,7 @@ class HtmlElement {
 		this.autoClose = autoClose;
 		this.myTxt = myTxt;
 	}
-	//---=== Атрибуты ===---
+	//---=== Методы атрибутов ===---
 	get myAtributes(){
 		let str = "";
 		
@@ -76,10 +76,8 @@ class HtmlElement {
 		if ((isNaN(ind)) || (ind < 0) || (ind > this.#myAtributes.length - 1)) return undefined;
 		else this.#myAtributes.splice(ind, 1);
 	}
-	pushMyAtribut = function(name, val){
-		this.#myAtributes.push(name + '="' + val + '"');
-	}
-	//---=== Стили ===---
+	pushMyAtribut = function(name, val){this.#myAtributes.push(name + '="' + val + '"')}
+	//---=== Методы стилей ===---
 	get myStyle(){
 		let str = 'style="';
 		
@@ -99,12 +97,10 @@ class HtmlElement {
 		if ((isNaN(ind)) || (ind < 0) || (ind > this.#myStyle.length - 1)) return undefined;
 		else this.#myStyle.splice(ind, 1);
 	}
-	pushMyStyle = function(name, val){
-		this.#myStyle.push(name + ': ' + val + ';');
-	}
+	pushMyStyle = function(name, val){this.#myStyle.push(name + ': ' + val + ';')}
 	
 	
-	//---=== Дочерние ===---
+	//---=== Методы с дочерними эл. ===---
 	delMyChildTag = function(ind){
 		ind = Number(ind);
 		if ((isNaN(ind)) || (ind < 0) || (ind > this.#myChildTag.length - 1)) return undefined;
@@ -124,13 +120,7 @@ class HtmlElement {
 		let str = "<";
 		let i;
 		str += this.nameOfTag + " " + this.myStyle + " " + this.myAtributes + ">" + this.myTxt;
-		
-		// str += "str вложенных тэгов";
-		
-		for (i = 0; i < this.#myChildTag.length; i++){
-			str += this.#myChildTag[i].getHtml();
-		}
-		
+		for (i = 0; i < this.#myChildTag.length; i++){str += this.#myChildTag[i].getHtml()}
 		if (!this.autoClose) str += "</" + this.nameOfTag + ">";
 		return str;
 	}
@@ -218,7 +208,88 @@ function Zadanie3(){
 }
 
 // 4 задание
+class HtmlBlock {
+	constructor (myHTML, myCSS){
+		this.myHTML = ((typeof myHTML == 'object') && (myHTML instanceof HtmlElement)) ? myHTML : undefined;
+		this.myCSS = [];
+		this.myCSS[0] = ((typeof myCSS == 'object') && (myCSS instanceof CssClass)) ? myCSS : undefined;
+	}
+	getCode = function(){
+		let str;
+		let i;
+		
+		if (this.myCSS !== undefined){
+			str = "<style>\n";
+			for (i = 0; i < this.myCSS.length; i++){str += this.myCSS[i].getCss()} + "\n";
+			str += "</style>\n";
+		}
+		if (this.myHTML == undefined) return;
+		else str += this.myHTML.getHtml()
+		return str;
+	}
+	pushCSS = function(newCSS){
+		let i;
+		
+		if ((typeof newCSS == 'object') && (newCSS instanceof CssClass)) {
+				this.myCSS.push(newCSS);
+		}
+	}
+	delCSS = function(ind){
+		let i;
+		ind = Number(ind);
+		if ((isNaN(ind)) || (ind < 0) || (ind > this.myCSS.length - 1)) return undefined;
+		else this.myCSS.splice(ind, 1);
+	}
+}
+//Создание классов
+let myBlockCSSWrap = new CssClass("wrap");
+myBlockCSSWrap.pushMyStyle("display", "flex");
+let myBlockCSSBlock = new CssClass("block");
+myBlockCSSBlock.pushMyStyle("width", "300px");
+myBlockCSSBlock.pushMyStyle("margin", "10px");
+let myBlockCSSImg = new CssClass("img");
+myBlockCSSImg.pushMyStyle("width", "100%");
+let myBlockCSSText = new CssClass("text");
+myBlockCSSText.pushMyStyle("text-align", "justify");
+//Создание стилей
+let myBlockTagA = new HtmlElement("a", false, "More...");
+myBlockTagA.myAtributes = ["href", "https://www.lipsum.com/"];
+myBlockTagA.pushMyAtribut("target", "_blank");
+let myBlockTagP = new HtmlElement("p", false, '"Lorem Ipsum is simply dummy text ' + 
+			`of the printing and typesetting industry. Lorem Ipsum has been ` + 
+			`the industy's standart dummy text ever since the 1500s, when an ` + 
+			`unknown printer took a galley of type and scrambled it to make ` + 
+			`a type specimen book."`);
+myBlockTagP.pushMyAtribut("class", "text");
+myBlockTagP.pushMyChildTag(myBlockTagA);
+let myBlockTagImg = new HtmlElement("img", true, "");
+myBlockTagImg.pushMyAtribut("class", "img");
+myBlockTagImg.pushMyAtribut("scr", "lipsum.jpg");
+myBlockTagImg.pushMyAtribut("alt", "Lorem Ipsum");
+let myBlockTagH3 = new HtmlElement("h3", false, "What is Lorem Ipsum?");
+let myBlockTagDiv2 = new HtmlElement("div", false, "");
+myBlockTagDiv2.pushMyAtribut("class", "block");
+myBlockTagDiv2.pushMyChildTag(myBlockTagImg);
+myBlockTagDiv2.pushMyChildTag(myBlockTagP);
+myBlockTagDiv2.unshiftMyChildTag(tagH3);
+let myBlockHTML = new HtmlElement("div", false, "");
+myBlockHTML.pushMyAtribut("id", "wrapper");
+myBlockHTML.pushMyAtribut("class", "wrap");
+myBlockHTML.pushMyChildTag(myBlockTagDiv2);
+myBlockHTML.pushMyChildTag(myBlockTagDiv2);
+//Создание нужного объекта
+let myBlock = new HtmlBlock(myBlockHTML, myBlockCSSWrap);
+myBlock.pushCSS(myBlockCSSBlock);
+myBlock.pushCSS(myBlockCSSImg);
+myBlock.pushCSS(myBlockCSSText);
 
 function Zadanie4(){
-	alert("У тебя не плохо получается 4");
+	let newWinWid = window.innerWidth * 0.7;
+	let newWinHei = window.innerHeight * 0.7;
+	let newWinLeft = (window.innerWidth - newWinWid) / 2  ;
+	let newWinTop = (window.innerHeight - newWinHei)/ 2 ;
+	let newWindow = window.open("", null ,"popup = true, width = " + newWinWid +
+					", height = " + newWinHei +", left = " + newWinLeft +", top = "+newWinTop);
+	newWindow.document.write(myBlock.getCode());
+	newWindow.alert("Изображения в задании нету, поэтому оно не загружено :)");
 }

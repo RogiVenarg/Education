@@ -68,11 +68,25 @@
 			<div class="myCode">
 				<input type="checkbox" id="kOneZadan">
 				<div>
-					<label for="kOneZadan" class="viewCode">Показать код</label>
+					<label for="kOneZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">function</span> 
-					</code></pre>
-					<label for="kOneZadan" class="hideCode">Скрыть код</label>
+<span class="mainLev1">class</span>  <span class="mainLev2">myCircle</span> {
+  <span class="mainLev2">#id</span>  = Math.floor(1000000 * Math.random());
+  <span class="mainLev1">constructor</span> (radius){
+    <span class="mainLev2">this.radius</span>  = radius;
+  }
+	
+  <span class="mainLev2">get R</span>(){<span class="mainLev1">return</span> this.radius}
+  <span class="mainLev2">set R</span>(val){
+    val = Number(val);
+    <span class="mainLev2">if</span> (isNaN(val) || (val &lt;= 0)) <span class="mainLev1">return</span> "Ошибка";
+    <span class="mainLev2">else</span> this.radius = val;
+  }
+  <span class="mainLev2">get D</span>(){<span class="mainLev1">return</span> 2*this.radius}
+  <span class="mainLev2">L()</span>{<span class="mainLev1">return</span> 2 * Math.PI * this.radius}
+  <span class="mainLev2">S()</span>{<span class="mainLev1">return</span> Math.PI * (this.radius ** 2)}	
+}</code></pre>
+					<label for="kOneZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
 		</section>
@@ -121,11 +135,116 @@
 			<div class="myCode">
 				<input type="checkbox" id="kTwoZadan">
 				<div>
-					<label for="kTwoZadan" class="viewCode">Показать код</label>
+					<label for="kTwoZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">function</span> 
-					</code></pre>
-					<label for="kTwoZadan" class="hideCode">Скрыть код</label>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlElement</span> {
+  <span class="mainLev2">#myAtributes</span> = [];
+  <span class="mainLev2">#myStyle</span> = [];
+  <span class="mainLev2">#myChildTag</span> = [];
+  <span class="mainLev1">constructor</span>(nameOfTag, autoClose, myTxt){
+    <span class="mainLev2">this.nameOfTag</span> = nameOfTag;
+    <span class="mainLev2">this.autoClose</span> = autoClose;
+    <span class="mainLev2">this.myTxt</span> = myTxt;
+  }
+  <span class="mainLev3">//---=== Методы атрибутов ===---</span>
+  <span class="mainLev2">get myAtributes</span>(){
+    <span class="mainLev2">let</span> str = "";
+		
+    <span class="mainLev2">for</span> (<span class="mainLev2">let</span> i = 0; i &lt; this.#myAtributes.length; i++){
+      <span class="mainLev2">if</span> (i !== 0) str += " ";
+      str += this.#myAtributes[i];
+    }
+    <span class="mainLev1">return</span> str;
+  }
+  <span class="mainLev2">set myAtributes</span>(val){
+    <span class="mainLev2">if</span> ((val.length == 0) || (val.length > 2)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myAtributes[this.#myAtributes.length] = val[0] + '="' + val[1] + '"';		
+  }
+  <span class="mainLev2">delMyAtribut</span> = function(ind){
+    console.log(ind);
+    ind = Number(ind);
+    console.log(ind, this.#myAtributes.length - 1);
+    <span class="mainLev2">if</span> ((isNaN(ind)) || (ind &lt; 0) || (ind > this.#myAtributes.length - 1)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myAtributes.splice(ind, 1);
+  }
+  <span class="mainLev2">pushMyAtribut</span> = function(name, val){this.#myAtributes.push(name + '="' + val + '"')}
+  <span class="mainLev3">//---=== Методы стилей ===---</span>
+  <span class="mainLev2">get myStyle</span>(){
+    <span class="mainLev2">let</span> str = 'style="';
+		
+    <span class="mainLev2">for</span> (<span class="mainLev2">let</span> i = 0; i &lt; this.#myStyle.length; i++){
+      <span class="mainLev2">if</span> (i !== 0) str += " ";
+      str += this.#myStyle[i];
+    }
+    str = str + '"';
+    <span class="mainLev1">return</span> str;
+  }
+  <span class="mainLev2">set myStyle</span>(val){
+    <span class="mainLev2">if</span> ((val.length == 0) || (val.length > 2)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myStyle[this.#myStyle.length] = val[0] + ': ' + val[1] + ';';		
+  }
+  <span class="mainLev2">delMyStyle</span> = function(ind){
+    ind = Number(ind);
+    <span class="mainLev2">if</span> ((isNaN(ind)) || (ind &lt; 0) || (ind > this.#myStyle.length - 1)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myStyle.splice(ind, 1);
+  }
+  <span class="mainLev2">pushMyStyle</span> = function(name, val){this.#myStyle.push(name + ': ' + val + ';')}
+	
+	
+  <span class="mainLev3">//---=== Методы с дочерними эл. ===---</span>
+  <span class="mainLev2">delMyChildTag</span> = function(ind){
+    ind = Number(ind);
+    <span class="mainLev2">if</span> ((isNaN(ind)) || (ind &lt; 0) || (ind > this.#myChildTag.length - 1)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myChildTag.splice(ind, 1);
+  }
+  <span class="mainLev2">pushMyChildTag</span> = function(obj){
+    <span class="mainLev2">if</span> (typeof obj !== 'object') <span class="mainLev1">return</span> undefined;
+    this.#myChildTag.push(obj);
+  }
+  <span class="mainLev2">unshiftMyChildTag</span> = function(obj){
+    <span class="mainLev2">if</span> (typeof obj !== 'object') <span class="mainLev1">return</span> undefined;
+    this.#myChildTag.unshift(obj);
+  }
+	
+  <span class="mainLev3">//---=== getHtml() ===---</span>
+  <span class="mainLev2">getHtml</span> = function(){
+    <span class="mainLev2">let</span> str = "&lt;";
+    <span class="mainLev2">let</span> i;
+    str += this.nameOfTag + " " + this.myStyle + " " + this.myAtributes + ">" + this.myTxt;
+    <span class="mainLev2">for</span> (i = 0; i &lt; this.#myChildTag.length; i++){str += this.#myChildTag[i].getHtml()}
+    <span class="mainLev2">if</span> (!this.autoClose) str += "&lt;/" + this.nameOfTag + ">";
+    <span class="mainLev1">return</span> str;
+  }
+}
+
+<span class="mainLev3">//---=== Создание объектов ===---</span>
+<span class="mainLev2">let</span> tagA = <span class="mainLev2">new</span> HtmlElement("a", false, "More...");
+tagA.myAtributes = ["href", "https://www.lipsum.com/"];
+tagA.pushMyAtribut("target", "_blank");
+<span class="mainLev2">let</span> tagP = <span class="mainLev2">new</span> HtmlElement("p", false, '"Lorem Ipsum is simply dummy text ' + 
+      `of the printing and typesetting industry. Lorem Ipsum has been ` + 
+      `the industy's standart dummy text ever since the 1500s, when an ` + 
+      `unknown printer took a galley of type and scrambled it to make ` + 
+      `a type specimen book."`);
+tagP.pushMyStyle("text-align", "justify");
+tagP.pushMyChildTag(tagA);
+<span class="mainLev2">let</span> tagImg = <span class="mainLev2">new</span> HtmlElement("img", true, "");
+tagImg.pushMyStyle("width", "100%");
+tagImg.pushMyAtribut("scr", "lipsum.jpg");
+tagImg.pushMyAtribut("alt", "Lorem Ipsum");
+<span class="mainLev2">let</span> tagH3 = <span class="mainLev2">new</span> HtmlElement("h3", false, "What is Lorem Ipsum?");
+<span class="mainLev2">let</span> tagDiv2 = <span class="mainLev2">new</span> HtmlElement("div", false, "");
+tagDiv2.pushMyStyle("width", "300px");
+tagDiv2.pushMyStyle("margin", "10px");
+tagDiv2.pushMyChildTag(tagImg);
+tagDiv2.pushMyChildTag(tagP);
+tagDiv2.unshiftMyChildTag(tagH3);
+<span class="mainLev2">let</span> tagDiv1 = <span class="mainLev2">new</span> HtmlElement("div", false, "");
+tagDiv1.pushMyAtribut("id", "wrapper");
+tagDiv1.pushMyStyle("display", "flex");
+tagDiv1.pushMyChildTag(tagDiv2);
+tagDiv1.pushMyChildTag(tagDiv2)</code></pre>
+					<label for="kTwoZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
 		</section>
@@ -152,11 +271,36 @@
 			<div class="myCode">
 				<input type="checkbox" id="kThreeZadan">
 				<div>
-					<label for="kThreeZadan" class="viewCode">Показать код</label>
+					<label for="kThreeZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">function</span> 
-					</code></pre>
-					<label for="kThreeZadan" class="hideCode">Скрыть код</label>
+<span class="mainLev1">class</span> <span class="mainLev2">CssClass</span> {
+  <span class="mainLev2">#myStyle</span> = [];
+  <span class="mainLev1">constructor</span> (name){
+    <span class="mainLev2">this.name</span> = name;
+  }
+  <span class="mainLev2">pushMyStyle</span> = function(name, val){
+    <span class="mainLev2">let</span> str = name + ": " + val + ";\n"
+    this.#myStyle.push(str);
+  }
+  <span class="mainLev2">delMyStyle</span> = function(ind){
+    ind = Number(ind);
+    <span class="mainLev2">if</span> ((isNaN(ind)) || (ind &lt; 0) || (ind > this.#myStyle.length - 1)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.#myStyle.splice(ind, 1);
+  }
+  <span class="mainLev2">getCss</span> = function(){
+    <span class="mainLev2">let</span> str = "."
+    <span class="mainLev2">let</span> i;
+    str += this.name + "{\n";
+    <span class="mainLev2">for</span> (i = 0; i &lt; this.#myStyle.length; i++){str += this.#myStyle[i]}
+    str += "}";
+    <span class="mainLev1">return</span> str;
+  }
+}
+
+<span class="mainLev2">let</span> myNewClassCSS = <span class="mainLev2">new</span> CssClass("wrapper");
+myNewClassCSS.pushMyStyle("display", "flex");
+myNewClassCSS.pushMyStyle("margin", "5px");</code></pre>
+					<label for="kThreeZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
 		</section>
@@ -191,11 +335,83 @@
 			<div class="myCode">
 				<input type="checkbox" id="kFourZadan">
 				<div>
-					<label for="kFourZadan" class="viewCode">Показать код</label>
+					<label for="kFourZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">function</span> 
-					</code></pre>
-					<label for="kFourZadan" class="hideCode">Скрыть код</label>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+  <span class="mainLev1">constructor</span> (myHTML, myCSS){
+    <span class="mainLev2">this.myHTML</span> = ((typeof myHTML == 'object') && (myHTML instanceof HtmlElement)) ? myHTML : undefined;
+    <span class="mainLev2">this.myCSS</span> = [];
+    this.myCSS[0] = ((typeof myCSS == 'object') && (myCSS instanceof CssClass)) ? myCSS : undefined;
+  }
+  <span class="mainLev2">getCode</span> = function(){
+    <span class="mainLev2">let</span> str;
+    <span class="mainLev2">let</span> i;
+		
+    <span class="mainLev2"></span> (this.myCSS !== undefined){
+      str = "&lt;style>\n";
+      <span class="mainLev2">for</span> (i = 0; i &lt; this.myCSS.length; i++){str += this.myCSS[i].getCss()} + "\n";
+      str += "&lt;/style>\n";
+    }
+    <span class="mainLev2">if</span> (this.myHTML == undefined) <span class="mainLev1">return</span>;
+    <span class="mainLev2">else</span> str += this.myHTML.getHtml()
+    <span class="mainLev1">return</span> str;
+  }
+  <span class="mainLev2">pushCSS</span> = function(newCSS){
+    <span class="mainLev2">let</span> i;
+		
+    <span class="mainLev2">if</span> ((typeof newCSS == 'object') && (newCSS instanceof CssClass)) {
+      this.myCSS.push(newCSS);
+    }
+  }
+  <span class="mainLev2">delCSS</span> = function(ind){
+    <span class="mainLev2">let</span> i;
+    <span class="mainLev2">ind</span> = Number(ind);
+    <span class="mainLev2">if</span> ((isNaN(ind)) || (ind &lt; 0) || (ind > this.myCSS.length - 1)) <span class="mainLev1">return</span> undefined;
+    <span class="mainLev2">else</span> this.myCSS.splice(ind, 1);
+  }
+}
+<span class="mainLev3">//Создание классов</span>
+<span class="mainLev2">let</span> myBlockCSSWrap = <span class="mainLev2">new</span> CssClass("wrap");
+myBlockCSSWrap.pushMyStyle("display", "flex");
+<span class="mainLev2">let</span> myBlockCSSBlock = <span class="mainLev2">new</span> CssClass("block");
+myBlockCSSBlock.pushMyStyle("width", "300px");
+myBlockCSSBlock.pushMyStyle("margin", "10px");
+<span class="mainLev2">let</span> myBlockCSSImg = <span class="mainLev2">new</span> CssClass("img");
+myBlockCSSImg.pushMyStyle("width", "100%");
+<span class="mainLev2">let</span> myBlockCSSText = <span class="mainLev2">new</span> CssClass("text");
+myBlockCSSText.pushMyStyle("text-align", "justify");
+<span class="mainLev3">//Создание стилей</span>
+<span class="mainLev2">let</span> myBlockTagA = <span class="mainLev2">new</span> HtmlElement("a", false, "More...");
+myBlockTagA.myAtributes = ["href", "https://www.lipsum.com/"];
+myBlockTagA.pushMyAtribut("target", "_blank");
+<span class="mainLev2">let</span> myBlockTagP = <span class="mainLev2">new</span> HtmlElement("p", false, '"Lorem Ipsum is simply dummy text ' + 
+      `of the printing and typesetting industry. Lorem Ipsum has been ` + 
+      `the industy's standart dummy text ever since the 1500s, when an ` + 
+      `unknown printer took a galley of type and scrambled it to make ` + 
+      `a type specimen book."`);
+myBlockTagP.pushMyAtribut("class", "text");
+myBlockTagP.pushMyChildTag(myBlockTagA);
+<span class="mainLev2">let</span> myBlockTagImg = <span class="mainLev2">new</span> HtmlElement("img", true, "");
+myBlockTagImg.pushMyAtribut("class", "img");
+myBlockTagImg.pushMyAtribut("scr", "lipsum.jpg");
+myBlockTagImg.pushMyAtribut("alt", "Lorem Ipsum");
+<span class="mainLev2">let</span> myBlockTagH3 = <span class="mainLev2">new</span> HtmlElement("h3", false, "What is Lorem Ipsum?");
+<span class="mainLev2">let</span> myBlockTagDiv2 = <span class="mainLev2">new</span> HtmlElement("div", false, "");
+myBlockTagDiv2.pushMyAtribut("class", "block");
+myBlockTagDiv2.pushMyChildTag(myBlockTagImg);
+myBlockTagDiv2.pushMyChildTag(myBlockTagP);
+myBlockTagDiv2.unshiftMyChildTag(tagH3);
+<span class="mainLev2">let</span> myBlockHTML = <span class="mainLev2">new</span> HtmlElement("div", false, "");
+myBlockHTML.pushMyAtribut("id", "wrapper");
+myBlockHTML.pushMyAtribut("class", "wrap");
+myBlockHTML.pushMyChildTag(myBlockTagDiv2);
+myBlockHTML.pushMyChildTag(myBlockTagDiv2);
+<span class="mainLev3">//Создание нужного объекта</span>
+<span class="mainLev2">let</span> myBlock = <span class="mainLev2">new</span> HtmlBlock(myBlockHTML, myBlockCSSWrap);
+myBlock.pushCSS(myBlockCSSBlock);
+myBlock.pushCSS(myBlockCSSImg);
+myBlock.pushCSS(myBlockCSSText);</code></pre>
+					<label for="kFourZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
 		</section>
