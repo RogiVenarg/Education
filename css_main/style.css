@@ -1,3 +1,45 @@
 .noscripts {
 	display: none;
 }
+html{
+	background-color: #f2f2f2;
+}
+body {
+	width: 95%;
+	min-width: 870px;
+	max-width: 1400px;
+	border: 1px solid gray;
+	box-shadow: 2px 2px 5px gray;
+	margin: 0px auto;
+	padding: 5px;
+	background-color: white;
+	font-family: Arial, Sans-serif;
+	font-size: 1.2rem;
+}
+header>ul{
+	list-style: none;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	width: 90%;
+	}
+
+header>ul>li{
+	margin: 0px 5px;
+	padding: 10px;
+	background-color: #c6f8ff;
+	border: 2px solid blue;
+	font-size: 1rem;
+	font-weight: bold;
+}
+header>ul>li:hover{
+	text-decoration: underline;
+}
+h1{
+	text-align: center;
+	font-size: 1.8rem;
+}
+h2{
+	text-align: center;
+	font-size: 1.5rem;
+}
