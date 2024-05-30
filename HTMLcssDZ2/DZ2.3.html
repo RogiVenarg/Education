@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+	<head> 
+		<title>Домашнее задание 2.3</title>
+		<meta charset="UTF-8">
+		<style>
+			body {
+				font-family:  sans-serif;
+				font-size: 0.8em;
+				background-color: #F5F5F5;
+			}
+			p {
+				text-indent: 30px;
+				margin:5px 0px;
+			}
+			
+			dd>ol>li>span {
+				color: #777;	
+			}
+			
+			dd>ol>li>span::before {
+				content: '"'
+			}			
+			dd>ol>li>span::after {
+				content: '"'
+			}
+			
+			ol {
+				padding-left: 0px;
+				margin: 0px;
+			}
+			li {
+				margin-left:10px;
+			}
+			dd>sup {
+				font-size: 70%;
+			}
+
+			dd{
+				margin: 20px 0px;
+				padding-left: 60px;
+			}
+						
+			dd>span {
+				display: block;
+				margin: 10px 0px 10px -60px;
+			}
+			
+			dd>p {
+				margin-left: -60px;
+			}
+			
+			code {
+				color: #00F;
+			}
+		</style>
+	</head>
+	<body>
+		<dl>
+			<dt><strong>TAG</strong></dt>
+			<dd>
+				<span>[t&#230;g]</span>
+				<p>
+					In information systems, a tag is a keyword or term assigned to a piece of information (such as an Internet bookmark, digital image,
+					database record, or computer file). This kind of metadata helps describe an item and allows it to be found again by browsing or searching.
+					<sup><a href="#FirstHref">[1]</a></sup>
+					Tags are generally chosen informally and personally by the item's creator or by its viewer, depending on the system, 
+					although they may also be chosen from a controlled vocabulary.
+					<sup><a href="#SecondHref">[2]</a></sup>
+				</p>
+			</dd>
+			<dt><i>ATTRIBUTE</i></dt>
+			<dd>
+				<ol>
+					<li>
+						HTML attributes are special words used inside the opening tag to control the element's behaviour.<br>
+						<span>HTML attributes are a modifier of an HTML element type.</span>
+					</li>
+					<li>
+						An attribute either modifies the default functionality of an element type or provides functionality to certain element types
+						unable to function correctly without them.<br>
+						<span>In HTML syntax, an attribute is added to an HTML start tag.</span>
+					</li>
+				</ol>
+			
+			<dt><i>ELEMENT</i></dt>
+			<dd>
+				<ol>
+					<li>
+						An HTML element is an individual component of an HTML (Hypertext Markup Language) document or web page.[vague]<br>
+						<span>HTML is composed of a tree of HTML nodes, such as text nodes. <b>Each node</b> can have HTML <b>attributes specified</b>.</span>
+					</li>
+					<li>
+						Nodes can also have content, including other nodes and text. Many HTML nodes represent semantics, or meaning.<br>
+						<span>For example, the <code>&lt;title&gt;</code> node represents <b>the title of the document</b>.</span>
+					</li>
+				</ol>
+			</dd>
+		</dl>
+		<p id="FirstHref">
+			[1]Some users, however, see tags not as metadata but as "just more content": Berendt, Bettina; Hanser, Christoph (2007). 
+			"Tags are not metadata, but 'just more content'—to some people" (PDF). Proceedings of the International Conference on Weblogs 
+			and Social Media (ICWSM), Boulder, Colorado, USA, March 26–28, 2007. Menlo Park, CA: International Joint Conferences on Artificial Intelligence. OCLC 799635928.<br>
+		</p>
+		<p id="SecondHref">
+			[2]Smith, Gene (2008). Tagging: people-powered metadata for the social web. Berkeley: New Riders Press. ISBN 9780321529176. OCLC 154806677.
+		</p>
+		<hr>
+		<p style="font-size: 2em">Подошел творчески исходя из того текста что прилагался к заданию, для демонстрации применения требуемых в задании стилей.</p>
+	</body>
+</html>

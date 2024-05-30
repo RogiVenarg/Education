@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">	
+<head>
+	<meta charset="UTF-8">
+	<title>Домашнее задание 2.2 CSS</title>
+	<style>
+		* {
+			font-family: 'Segoe UI', sans-serif;
+		}
+		body {
+			padding: 0px 15px
+		}		
+		h1 {
+			font-size: 1.12em;
+			margin-bottom: 23px;
+		}
+		ul {
+			list-style-type: none;
+			padding-inline-start: 0px;
+		}		
+		li {
+			padding-top: 9px;
+			padding-bottom: 9px;
+			padding-left: 25px;
+			font-size:0.8em;
+		}		
+		li.Chetn {
+			background-color: rgb(173, 216, 230);
+		}		
+		li.NeChetn {
+			background-color: rgb(165, 204, 218);
+		}		
+		li.Da {
+			background-color: rgb(226, 226, 226);
+			text-decoration: line-through;
+		}	
+		li:after {
+			display: inline-block;
+			font-size: 0.8em;
+			content: '\2716';
+			color: rgb(139, 0, 0);
+			font-weight:700;
+			margin-left: 25px;
+		}	
+		li:before {
+			content: url(images/NeChek.png);
+			zoom: 13%;
+			margin-right: 110px;
+		}
+		li.da:before {
+			content: url(images/Chek.png);
+			zoom: 10%;
+		}
+		
+	</style>
+</head>
+<body style="background-color: #F5F5F5;">
+	<h1>
+		My To Do List
+	</h1>
+	<ul>
+		<li class="NeChetn">Hit the gym</li>
+		<li class="Chetn Da">Pay bills</li>
+		<li class="NeChetn">Meet John</li>
+		<li class="Chetn">Buy eggs</li>
+		<li class="NeChetn Da">Read a book</li>
+		<li class="Chetn">Organize office</li>
+		<li class="NeChetn">Eat dinner</li>
+		<li class="Chetn">Buy apples</li>
+		<li class="NeChetn">Meet George</li>
+		<li class="Chetn">Feed the cat</li>
+		<li class="NeChetn Da">Write a later</li>
+		<li class="Chetn">Run 1 km</li>
+	</ul>
+</body>
+</html>
