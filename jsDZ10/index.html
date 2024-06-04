@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<noscript>
+		<style>
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
+				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
+			}
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
+			}
+		</style>
+	</noscript>
+	<title>Домашнее задание №10</title>
+</head>
+<body>
+	<header>
+		<h1>Домашнее задание №10</h1>
+		<p class="noscripts">
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
+		</p>
+	</header>
+	<main>
+		<section class="zadan">
+			<div>
+				<h2>Задание 1</h2>
+				<p>
+					Реализовать класс, описывающий простой маркер. В классе
+					должны быть следующие компоненты:
+				</p>
+				<ul>
+					<li>поле, которое хранит цвет маркера;</li>
+					<li>поле, которое хранит количество чернил в маркере (в процентах);</li>
+					<li>
+						метод для печати (метод принимает строку и выводит
+						текст соответствующим цветом; текст выводится до тех
+						пор, пока в маркере есть чернила; один не пробельный
+						символ – это 0,5% чернил в маркере).
+					</li>
+				</ul>
+				<p>
+					Реализовать класс, описывающий заправляющийся маркер,
+					унаследовав его от простого маркера и добавив метод для заправки
+					маркера.
+				</p>	
+				<p>
+					Продемонстрировать работу написанных методов.
+				</p>				
+			</div>
+			<div class="forButton">
+				<button onclick="Zadanie1()">Проверить</button>
+				<input type="checkbox" id="firstZadanie">
+				<label for="firstZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kOneZadan">
+				<div>
+					<label for="kOneZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span>  <span class="mainLev2">myCircle</span> {
+  </code></pre>
+					<label for="kOneZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 2</h2>
+				<p>
+					Реализовать класс, описывающий html элемент.
+					Класс HtmlElement должен содержать внутри себя:
+				</p>
+				<ul>
+					<li>название тега;</li>
+					<li>самозакрывающийся тег или нет;</li>
+					<li>текстовое содержимое;</li>
+					<li>массив атрибутов;</li>
+					<li>массив стилей;</li>
+					<li>массив вложенных таких же тегов;</li>
+					<li>метод для установки атрибута;</li>
+					<li>метод для установки стиля;</li>
+					<li>метод для добавления вложенного элемента в конец текущего элемента;</li>
+					<li>метод для добавления вложенного элемента в начало текущего элемента;</li>
+					<li>
+						метод getHtml(), который возвращает html код в виде
+						строки, включая html код вложенных элементов.
+					</li>
+				</ul>
+				<p>
+					С помощью написанного класса реализовать следующий блок
+					и добавить его на страницу с помощью document.write().
+				</p>
+				<img src="img/example1.png" alt="Блок HTML для реализации">
+				<p>
+					<b>Обратите внимание.</b> 
+					Чтобы получить весь этот html в виде
+					строки должно быть достаточно вызвать метод getHtml только
+					у тега с идентификатором wrapper.
+				</p>
+			</div>
+			<div class="forButton">
+				<button onclick="Zadanie2()">Проверить</button>
+				<input type="checkbox" id="secondZadanie">
+				<label for="secondZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kTwoZadan">
+				<div>
+					<label for="kTwoZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlElement</span> {
+  </code></pre>
+					<label for="kTwoZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 3</h2>
+				<p>Реализовать класс, который описывает css класс.</p>
+				<p>Класс CssClass должен содержать внутри себя:</p>
+				<ul>
+					<li>название css класса;</li>
+					<li>массив стилей;</li>
+					<li>метод для установки стиля;</li>
+					<li>метод для удаления стиля;</li>
+					<li>метод getCss(), который возвращает css код в виде строки.</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<button onclick="Zadanie3()">Проверить</button>
+				<input type="checkbox" id="thirdZadanie">
+				<label for="thirdZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kThreeZadan">
+				<div>
+					<label for="kThreeZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">CssClass</span> {
+  </code></pre>
+					<label for="kThreeZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 4</h2>
+				<p>Реализовать класс, описывающий блок html документ.</p>	
+				<p>Класс HtmlBlock должен содержать внутри себя:</p>
+				<ul>
+					<li>коллекцию стилей, описанных с помощью класса CssClass;</li>
+					<li>корневой элемент, описанный с помощью класса HtmlElement;</li>
+					<li>
+						метод getCode(), который возвращает строку с html кодом 
+						(сначала теги style с описанием всех классов, а потом
+						все html содержимое из корневого тега и его вложенных
+						элементов).
+					</li>
+				</ul>
+				<p>
+					С помощью написанных классов реализовать следующий блок
+					и добавить его на страницу с помощью document.write().
+				</p>
+				<img src="img/example2.png" alt="Блок HTML для реализации">
+			</div>
+			<div class="forButton">
+				<button onclick="Zadanie4()">Проверить</button>
+				<input type="checkbox" id="fourthZadanie">
+				<label for="fourthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kFourZadan">
+				<div>
+					<label for="kFourZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+  </code></pre>
+					<label for="kFourZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+</html>
