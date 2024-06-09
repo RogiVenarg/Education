@@ -6,42 +6,51 @@ for (var i = 0; i < gpElement.length; i++){
 	})	
 }
 
+let gpExamples = document.getElementsByClassName("forExampe");
+
 // 1 задание
-class myCircle{
-	#id = Math.floor(1000000 * Math.random());
-	
-	constructor(radius){
-		this.radius = radius;
+class myMarker{
+	constructor(color){
+		this.color = color;
+		this.quant = 200;
 	}
-	
-	get R(){return this.radius}
-	set R(val){
-		val = Number(val);
-		if (isNaN(val) || (val <= 0)) return "Ошибка";
-		else this.radius = val;
+	print = function(myStr){
+		let i;
+		let answer;
+		
+		answer = '<p><span style = "color: #' + this.color + ';">';
+		for (i = 0; i < myStr.length; i++){
+			if (this.quant == 0) answer += '</span>';
+			answer += myStr[i];
+			if (myStr[i] !== " ") this.quant--;
+		}
+		if (this.quant <= 0) this.quant = 0;
+		else answer += '</span>';
+		answer += '</p>'
+		return answer;
 	}
-	get D(){return 2*this.radius}
-	
-	L() {return 2 * Math.PI * this.radius}
-	S(){return Math.PI * (this.radius ** 2)}	
+}
+class myFillMarker extends myMarker{
+	fillMe = function (){
+		this.quant = 200;
+	}
 }
 
+let gpMarker = new myMarker("ff0000");
+let universalMarker = new myFillMarker("0000ff");
+
 function Zadanie1(){
-	let firstCircle = new myCircle(1);
-	let num;
-	let str;
-	
-	num = prompt("Введите значение радиуса окружности.", "100");
-	if (num == null) return;
-	num = Number(num);
-	if (isNaN(num) || (num <= 0)) str = "Окружность с указанным Вами радиусом не существует.";
-	else {
-		firstCircle.R = num;
-		str = "Произведен расчет харрактеристик окружности с указанным Вами радиусом\n" + 
-		"Радиус - " + firstCircle.R + ";\nДиаметр - " + firstCircle.D +
-		";\nПлощадь - " + firstCircle.S() + "\nДлинна окружности - " + firstCircle.L() + ";";
-	}
-	alert(str);
+	let str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus," +
+	"sequi, aperiam, officia doloremque dolore illo repellendus delectus magnam " +
+	"porro commodi debitis voluptate repellat dignissimos labore cum eaque quis " +
+	"libero iure et modi dolores!"
+	let markerStr1 = gpMarker.print(str);
+	let markerStr2 = gpMarker.print(str);
+	let markerStr3 = universalMarker.print(str);
+	universalMarker.fillMe();
+	let markerStr4 = universalMarker.print(str);
+	gpExamples[0].innerHTML = '<p><b>Простой маркер</b></p>' + markerStr1 + 
+				markerStr2 + '<p><b>Заполняемый маркер</b></p>' + markerStr3 + markerStr4;
 }
 
 // 2 задание

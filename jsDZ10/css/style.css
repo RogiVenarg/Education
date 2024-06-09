@@ -79,6 +79,11 @@ section.zadan {
 	text-align: center;
 	padding: 5px 0px;
 }
+.zadan div.forExampe {
+	text-align: justify;
+	text-indent: 25px;
+	padding: 0px 10px;
+}
 .zadan div.forButton {
 	display: flex;
 	flex-flow: row wrap;
