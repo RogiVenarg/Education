@@ -133,11 +133,81 @@ function Zadanie2(){
 }
 
 // 3 задание
+// класс описывающий работника
+class Employee {
+	constructor(name, sername, job){
+		this.name = name;
+		this.sername = sername;
+		this.job = job;
+	}
+	toString = function(){
+		let str = "";
+		
+		str += this.name + " ";
+		str += this.sername + " - ";
+		str += this.job + " ";
+		return str;
+	}
+}
+//Массив работников
+let workers = [];
+workers[0] = new Employee("Игорь", "Гранев", "Администратор");
+workers[1] = new Employee("Максим", "Гранев", "Продавец-консультант");
+workers[2] = new Employee("Олег", "Яковлев", "Продавец-консультант");
+workers[3] = new Employee("Матрена", "Козицкая", "Товаровед");
+//Класс генрации html кода таблицы
+class EmpTable  {
+	constructor(gpArray){
+		this.gpArray = gpArray;
+	}
+	getHtml (){
+		let j;
+		let i;
+		let myHtmlCode = "<table>";
+		let myKeys=[];
+		
+		myHtmlCode += "<tbody>";
+		for (i = 0; i<this.gpArray.length; i++){
+			//Поиск значений в объекте
+			myKeys = Object.values(this.gpArray[i]);
+			j = 0;
+			do {
+				if (myKeys.length <= j) break;
+				if ((typeof myKeys[j] == "string") || (typeof myKeys[j] == "number")) j++;
+				else myKeys.splice(j, 1);
+			} while (true)
+				
+			//Создание таблицы
+			myHtmlCode += "<tr>";
+			myHtmlCode += "<td>" + (i+1) + "." + "</td>";
+			for (let j=0; j<myKeys.length; j++){
+				myHtmlCode += "<td>" + myKeys[j] + "</td>";
+			}
+			myHtmlCode += "</tr>";
+		}
+		myHtmlCode += "</tbody></table>";
+		return myHtmlCode;
+	}
+}
 function Zadanie3(){
-	
+	let myPrimer = new EmpTable(workers);
+	gpExamples[1].innerHTML = myPrimer.getHtml();
 }
 
 // 4 задание
+class StyledEmpTable extends EmpTable {
+	getStyles = function(){
+		let str = "<style>";
+		str += ".gpStyle table{font-family: monoshire; font-size: 1.5rem; color: red;}";
+		str += ".gpStyle td{padding: 2px;}";
+		str += "</style>";
+		return str;
+	}
+	getHtml(){
+		return this.getStyles() + super.getHtml();
+	}
+}
+	let myPrimer2 = new StyledEmpTable(workers);
 function Zadanie4(){
-	
+	gpExamples[2].innerHTML = myPrimer2.getHtml();
 }
