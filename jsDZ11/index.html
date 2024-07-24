@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<noscript>
+		<style>
+			footer, main, header * {display: none;}
+			p.noscripts *{display: inline-block;}
+			p.noscripts{
+				display: block;
+				position: absolute; 
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: red;
+				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				padding-top: 25%;
+			}
+			p.noscripts b{
+				display: block;
+				text-shadow: 1px 1px 2px white;
+			}
+		</style>
+	</noscript>
+	<title>ДЗ №11</title>
+</head>
+<body>
+	<header>
+		<h1>Домашнее задание №11</h1>
+		<p class="noscripts">
+			В настоящее время запуск скриптов отключен!!!<br>
+			Для корректной работы страницы <b>включите запуск скриптов в браузере!!!</b>
+		</p>
+	</header>
+	<main>
+		<section class="zadan">
+			<div>
+				<h2>Задание 1</h2>
+				<p>
+					Создать html-страницу со списком ссылок.
+				</p>
+				<p>
+					Ссылки на внешние источники (которые начинаются с http://)
+					необходимо подчеркнуть пунктиром.
+				</p>
+				<p>
+					Искать такие ссылки в списке и устанавливать им дополнительные
+					стили необходимо с помощью JS.
+				</p>
+				<img class="halfImg" src="img/для задания 1.png" alt="Образец задания 1">
+			</div>
+			<div class="forExampe">
+				<ul class="exForZadan1">
+					<li><a class="httpStyle" href="index.html">index.html</a></li>
+					<li><a class="httpStyle" href="http://google.com">http://google.com</a></li>
+					<li><a href="http://itstep.org">http://itstep.org</a></li>
+					<li><a href="http://mystat.instep.org">http://mystat.instep.org</a></li>
+					<li><a href="/images/cat.img">/images/cat.img</a></li>
+					<li><a href="/local/path">/local/path</a></li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="firstZadanie">
+				<label for="firstZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kOneZadan">
+				<div>
+					<label for="kOneZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span>  <span class="mainLev2">myCircle</span> {
+  </code></pre>
+					<label for="kOneZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 2</h2>
+				<p>
+					Создать html-страницу с деревом вложенных директорий.
+				</p>
+				<p>
+					При клике на элемент списка, он должен сворачиваться или
+					разворачиваться. При наведении на элемент, шрифт должен 
+					становится жирным (с помощью CSS).
+				</p>
+				<img class="halfImg" src="img/для задания 2.png" alt="Образец задания 2">
+			</div>
+			<div class="forExampe">
+				<ul>
+					<li>
+						<span>This PC</span>
+						<ul>
+							<li>
+								<span>Local Disk (C:)</span>
+								<ul>
+									<li>Program Files</li>
+									<li>Users</li>
+									<li>Windows</li>
+								</ul>
+							</li>
+							<li>
+								<span>Local Disk (D:)</span>
+								<ul>
+									<li>New Folder 1</li>
+									<li>New Folder 2</li>
+									<li>New Folder 3</li>
+								</ul>
+							</li>
+							<li>
+								<span>Local Disk (E:)</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="secondZadanie">
+				<label for="secondZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kTwoZadan">
+				<div>
+					<label for="kTwoZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlElement</span> {
+  </code></pre>
+					<label for="kTwoZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 3</h2>
+				<p>
+					Создать html-страницу со списком книг.
+				</p>
+				<p>
+					При щелчке на элемент, цвет текста должен меняться на 
+					оранжевый. При повторном щелчке на другую книгу, предыдущей
+					необходимо возвращать прежний цвет.
+				</p>
+				<p>
+					Если при клике мышкой была зажата клавиша Ctrl, то элемент
+					добавляется/удаляется из выделенных. Если при клике мышкой
+					была зажата клавиша Shift, то к выделению добавляются все
+					элементы в промежутке от предыдущего кликнутого до текущего.
+				</p>
+				<img src="img/для задания 3.png" alt="Образец задания 3">
+			</div>
+			<div class="forExampe">
+				<div>
+					<ol>
+						<li>"Java Script for Kids: A Playful Introduction to Programming" by Nick Morgan</li>
+						<li>"Eloquent Java Script: A Modern Introduction to Programming" by Marijn Haverbeke</li>
+						<li>"Java Script: The Good Parts" by Douglas Crockford</li>
+						<li>"You Don't Know JS" by Kyle Simpson</li>
+						<li>
+							"Programming JavaScript Applications: Robust Web Architecture with Node, HTML 5,
+							and Moderns JS Libraries" by Eric Elliott
+						</li>
+						<li>
+							"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" 
+							by David Herman
+						</li>
+						<li>"JavaScript: The Definitive Guide" by David Flanagan</li>
+					</ol>
+				</div>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="thirdZadanie">
+				<label for="thirdZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kThreeZadan">
+				<div>
+					<label for="kThreeZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">CssClass</span> {
+  </code></pre>
+					<label for="kThreeZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 4</h2>
+				<p>
+					Создать html-страницу для отображения/редактирования текста.
+				</p>	
+				<p>
+					При открытии страницы текст отображается с помощью тега
+					div. При нажатии Ctrl + E, вместо div появляется textarea 
+					с тем же текстом, который теперь можно редактировать. При 
+					нажатии Ctrl + S, вместо textarea появляет div с уже 
+					измененным текстом. Не забудьте выключить поведение по 
+					умолчанию для этих сочетаний клавиш.
+				</p>
+				<img src="img/для задания 4.png" alt="Образец задания 4">
+			</div>
+			<div class="forExampe">
+				<div>
+					<p>Press Ctrl+E for edit text</p>
+					<p>Press Ctrl+S for save text</p>
+					<hr>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, eum architecto 
+						tempore enim! Iste, esse rerum quam eligendi tempore consequatur nostrum quae alias 
+						voluptate consequuntur optio eveniet impedit fugit qui earum adipisci quibusdam culpa 
+						non veritatis veniam? Distinctio, quibusdam, rem dolore consequuntur fugit ex quod 
+						delectus nobis aperiam aspernatur fugiat pariatur velit inventore eum maxime quas 
+						veritatis tempora blanditiis vel repellat laborum nihil sit. Non, maxime perferendis 
+						facilis consectetur ipsa ullam cum dolore tempore! Atque, dignissimos soluta vero 
+						veritatis praesentium eos aliquid quos placeat voluptas inventore. Cupiditate, 
+						doloremque, illum, obcaecati autem eum at culpa dolorem qui nulla illo hic itaque?
+					 </p>
+				</div>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="fourthZadanie">
+				<label for="fourthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kFourZadan">
+				<div>
+					<label for="kFourZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+  </code></pre>
+					<label for="kFourZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 5</h2>
+				<p>
+					Создать html-страницу с большой таблицей.
+				</p>	
+				<p>
+					При клике по заголовку колонки, необходимо отсортировать
+					данные по этой колонке. Например: на скриншоте люди отсо-
+					ртированы по возрасту. Учтите, что числовые значения должны
+					сортироваться как числа, а не как строки.
+				</p>
+				<img class="halfImg" src="img/для задания 5.png" alt="Образец задания 5">
+			</div>
+			<div class="forExampe">
+				<table>
+					<thead>
+						<tr>
+							<td>Firstname</td>
+							<td>Lastname</td>
+							<td>Age</td>
+							<td>Company</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Mark</td>
+							<td>Zuckerberg</td>
+							<td>34</td>
+							<td>Facebook</td>
+						</tr>
+						<tr>
+							<td>Larry</td>
+							<td>Page</td>
+							<td>45</td>
+							<td>Google</td>
+						</tr>
+						<tr>
+							<td>Timothy</td>
+							<td>Cook</td>
+							<td>57</td>
+							<td>Apple</td>
+						</tr>
+						<tr>
+							<td>Bill</td>
+							<td>Gates</td>
+							<td>62</td>
+							<td>Microsoft</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="fifthZadanie">
+				<label for="fifthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kFifZadan">
+				<div>
+					<label for="kFifZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+  </code></pre>
+					<label for="kFifZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+		<section class="zadan">
+			<div>
+				<h2>Задание 6</h2>
+				<p>
+					Создать html-страницу с блоком текста в рамочке.
+				</p>
+				<p>
+					Реализовать возможность изменять размер блока, если зажать
+					мышку в правом нижнем углу и тянуть ее дальше.
+				</p>
+				<img class="halfImg" src="img/для задания 6.png" alt="Образец задания 6">
+			</div>
+			<div class="forExampe">
+				<div>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, nobis sed 
+						provident?
+					</p>
+					<div></div>
+				</div>
+			</div>
+			<div class="forButton">
+				<!-- <button></button>  -->
+				<!--Нужно ли??? -->
+				<input type="checkbox" id="sixthZadanie">
+				<label for="sixthZadanie" class="rezults">
+					<span><span></span></span>
+				</label>
+			</div>
+			<div class="myCode">
+				<input type="checkbox" id="kSixZadan">
+				<div>
+					<label for="kSixZadan" class="viewCode">Показать код класса</label>
+					<pre><code>
+<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+  </code></pre>
+					<label for="kSixZadan" class="hideCode">Сскрыть код класса</label>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p> Данное задание разработано с применением системы контроля версий Git</p>
+		<a href="https://github.com/RogiVenarg/Education">Нажмите сюда для перехода на онлайн репозиторий в GitHub</a>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+</html>
