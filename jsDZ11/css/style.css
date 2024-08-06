@@ -85,7 +85,15 @@ section.zadan {
 	text-indent: 25px;
 	padding: 0px 10px;
 }
-
+.forExampe h3{
+	text-align: center;
+	font-size: 1.1rem;
+	margin-top: 10px;
+	margin-bottom: 5px
+}
+h3.meLeft{
+	text-align: justify;
+}
 ul.exForZadan1>li{
 	list-style-type: circle;
 	margin: 7px 0px;
@@ -98,6 +106,75 @@ ul.exForZadan1 a{
 ul.exForZadan1 a:hover{color: #7f8ad9;}
 ul.exForZadan1 a.httpStyle{border-bottom: 1px #45119b dashed;}
 
+ul.exForZadan2 li>span:hover {font-weight: bold}
+ul.exForZadan2 li li li:hover {font-weight: bold}
+ul.exForZadan2 li {font-weight: normal}
+
+div.exForZadan3 {
+	background-color: white;
+	border: 1px solid purple;
+	padding: 15px;
+	margin: 5px;
+}
+div.exForZadan3 ol{margin: 0px;}
+div.exForZadan3 li{padding: 2px 0px;}
+div.exForZadan3 li:hover{background-color: #ffa984;} /* временно через ховер что-бы  запомнить цвет */
+
+div.exForZadan4{
+	background-color: #fbf2e9;
+	border: 1px solid purple;
+	padding: 15px;
+	margin: 5px;
+}
+div.exForZadan4 textarea{
+	border-color: #91b3eb;
+	border-radius: 4px;
+	width: 100%;
+	display: none;
+}
+div.exForZadan5{
+	background-color: #fbf2e9;
+	border: 1px solid purple;
+	padding: 15px;
+	margin: 5px auto;
+	width: 400px;
+}
+div.exForZadan5>table{
+	border-collapse: collapse;
+	margin: 5px auto;
+}
+div.exForZadan5>table td{
+	border: 2px solid gray; 
+	padding: 10px 15px;
+}
+div.exForZadan5>table>thead td{font-weight: bold;}
+
+div.exForZadan6{	
+	background-color: #fbf2e9;
+	border: 1px solid purple;
+	padding: 15px;
+	margin: 5px;
+}
+div.exForZadan6 div{
+	border: 1px solid gray;
+	padding: 2px;
+	margin: 5px;
+}
+div.exForZadan6 p{
+	text-indent: 0px;
+	margin: 10px;
+}
+div.exForZadan6 p+div{
+	box-sizing: border-box;
+	width: 0px;
+	height: 0px;
+	padding: 0px;
+	margin: 0px 0px 0px auto;
+	border-left: 15px solid #fbf2e9;
+	border-top: 1px solid #fbf2e9;
+	border-bottom: 15px solid gray;
+	
+}
 .zadan div.forButton {
 	display: flex;
 	flex-flow: row wrap;
@@ -118,21 +195,6 @@ ul.exForZadan1 a.httpStyle{border-bottom: 1px #45119b dashed;}
 	z-index: -1;
 	opacity: 0;
 }
-/* .zadan button { */
-    /* font-size: 1.25rem; */
-    /* color: white; */
-    /* text-shadow: 1px 1px 2px var(--main-color3); */
-    /* text-indent: 0px; */
-    /* background-color: purple; */
-    /* padding: 5px 20px; */
-    /* margin: 5px 15px 5px 0px; */
-    /* border-style: none; */
-    /* border-radius: 5px; */
-/* } */
-/* .zadan button:hover{ */
-	/* text-shadow: none; */
-	/* filter: brightness(150%); */
-/* } */
 label{
 	display: inline-block;
 	text-indent: 0px;
@@ -142,7 +204,7 @@ label.rezults{
 }
 .zadan label.rezults::before{
 	display: inline-block;
-	content: 'Результат:';
+	content: 'Оценка:';
 	font-size: 16px;
 	font-weight: bold;
 	margin-right: 10px;
@@ -208,6 +270,7 @@ label.rezults{
 	color: red;
 	margin-right: 0px;
 }
+
 div.myCode {
 	position: relative;
 	padding: 0px !important; 
