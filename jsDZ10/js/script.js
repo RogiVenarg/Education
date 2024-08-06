@@ -207,7 +207,7 @@ class StyledEmpTable extends EmpTable {
 		return this.getStyles() + super.getHtml();
 	}
 }
-	let myPrimer2 = new StyledEmpTable(workers);
+let myPrimer2 = new StyledEmpTable(workers);
 function Zadanie4(){
 	gpExamples[2].innerHTML = myPrimer2.getHtml();
 }

@@ -79,8 +79,36 @@
 				<div>
 					<label for="kOneZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">class</span>  <span class="mainLev2">myCircle</span> {
-  </code></pre>
+<span class="mainLev1">class</span> <span class="mainLev2">myMarker</span>{
+  <span class="mainLev1">constructor</span>(color){
+    <span class="mainLev2">this</span>.color = color;
+    <span class="mainLev2">this</span>.quant = 200;
+  }
+  <span class="mainLev1">print</span> = function(myStr){
+    <span class="mainLev2">let</span> i;
+    <span class="mainLev2">let</span> answer;
+	
+    answer = '&lt;p>&lt;span style = "color: #' + this.color + ';">';
+    <span class="mainLev2">for</span> (i = 0; i &lt; myStr.length; i++){
+      <span class="mainLev2">if</span> (this.quant == 0) answer += '&lt;/span>';
+      answer += myStr[i];
+      <span class="mainLev2">if</span> (myStr[i] !== " ") this.quant--;
+    }
+    <span class="mainLev2">if</span> (this.quant &lt;= 0) this.quant = 0;
+    <span class="mainLev2">else</span> answer += '&lt;/span>';
+    answer += '&lt;/p>'
+    <span class="mainLev1">return</span> answer;
+  }
+}
+<span class="mainLev1">class</span> <span class="mainLev2">myFillMarker</span> <span class="mainLev1">extends</span> <span class="mainLev2">myMarker</span>{
+  <span class="mainLev1">fillMe</span> = function (){
+    this.quant = 200;
+  }
+}
+
+<span class="mainLev2">let</span> gpMarker = <span class="mainLev2">new</span> myMarker("ff0000");
+<span class="mainLev2">let</span> universalMarker = <span class="mainLev2">new</span> myFillMarker("0000ff");
+</code></pre>
 					<label for="kOneZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
@@ -119,8 +147,75 @@
 				<div>
 					<label for="kTwoZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">class</span> <span class="mainLev2">HtmlElement</span> {
-  </code></pre>
+<span class="mainLev1">class</span> <span class="mainLev2">ExtendedDate</span> <span class="mainLev1">extends</span> <span class="mainLev2">Date</span>{
+  <span class="mainLev1">dateInString</span> = function(){
+    <span class="mainLev2">let</span> myDay = this.getUTCDate();
+    <span class="mainLev2">let</span> myMonth = this.getUTCMonth();
+    <span class="mainLev2">let</span> str;
+		
+    <span class="mainLev2">if</span> (myDay==10) str = "десятое";
+    <span class="mainLev2">else if</span> (myDay==11) str = "одиннадцатое";
+    <span class="mainLev2">else if</span> (myDay==12) str = "двенадцатое";
+    <span class="mainLev2">else if</span> (myDay==13) str = "тринадцатое";
+    <span class="mainLev2">else if</span> (myDay==14) str = "четырнадцатое";
+    <span class="mainLev2">else if</span> (myDay==15) str = "пятнадцатое";
+    <span class="mainLev2">else if</span> (myDay==16) str = "шестнадцатое";
+    <span class="mainLev2">else if</span> (myDay==17) str = "семнадцатое";
+    <span class="mainLev2">else if</span> (myDay==18) str = "восемнадцатое";
+    <span class="mainLev2">else if</span> (myDay==19) str = "девятнадцатое";
+    <span class="mainLev2">else if</span> (myDay==20) str = "двадцатое";
+    <span class="mainLev2">else if</span> (myDay==30) str = "тридцатое";
+    <span class="mainLev2">else if </span>(myDay==31) str = "тридцать первое";
+    <span class="mainLev2">else</span> {
+      <span class="mainLev2">if</span> ((myDay>20) && (myDay&lt;30)) str = "двадцать ";
+      <span class="mainLev2">if</span> (myDay%10==1) str = "первое";
+      <span class="mainLev2">else if</span> (myDay%10==2) str = "второе";
+      <span class="mainLev2">else if</span> (myDay%10==3) str = "третье";
+      <span class="mainLev2">else if</span> (myDay%10==4) str = "четвертое";
+      <span class="mainLev2">else if</span> (myDay%10==5) str = "пятое";
+      <span class="mainLev2">else if</span> (myDay%10==6) str = "шестое";
+      <span class="mainLev2">else if</span> (myDay%10==7) str = "седьмое";
+      <span class="mainLev2">else if</span> (myDay%10==8) str = "восьмое";
+      <span class="mainLev2">else if</span> (myDay%10==9) str = "девятое";
+    }
+    str += " ";
+    <span class="mainLev2">switch</span> (myMonth){
+      <span class="mainLev2">case 0:</span> str += "января"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 1:</span> str += "февраля"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 2:</span> str += "марта"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 3:</span> str += "апреля"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 4:</span> str += "мая"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 5:</span> str += "июня"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 6:</span> str += "июля"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 7:</span> str += "августа"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 8:</span> str += "сентября"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 9:</span> str += "октября"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 10:</span> str += "ноября"; <span class="mainLev2">break</span>;
+      <span class="mainLev2">case 11:</span> str += "декабря";
+    }
+    <span class="mainLev1">return</span> str + " (UTC)";
+  }
+  <span class="mainLev1">lastOrFuture</span> = function(){
+    <span class="mainLev2">let</span> today = <span class="mainLev2">new</span> Date();	
+    <span class="mainLev2">if</span> (this.getUTCFullYear() &lt; today.getUTCFullYear()) <span class="mainLev1">return</span> false;
+    <span class="mainLev2">if</span> (this.getUTCMonth() &lt; today.getUTCMonth()) <span class="mainLev1">return</span> false;
+    <span class="mainLev2">if</span> (this.getUTCDate() &lt; today.getUTCDate()) <span class="mainLev1">return</span> false;
+    <span class="mainLev1">return</span> true;
+  }
+  <span class="mainLev1">whatEar</span> = function() {
+    <span class="mainLev2">let</span> year = this.getUTCFullYear()
+    <span class="mainLev2">if</span> (year%400 == 0) <span class="mainLev1">return</span> true;
+    <span class="mainLev2">else if</span> (year%100 == 0) <span class="mainLev1">return</span> false;
+    <span class="mainLev2">else if</span> (year%4 == 0) <span class="mainLev1">return</span> true;
+    <span class="mainLev1">return</span> false;
+  }
+  <span class="mainLev1">nextData</span> = function(){
+  <span class="mainLev2">let</span> myNextData = <span class="mainLev2">new</span> Date(this.getTime()+24*60*60*1000);
+  <span class="mainLev1">return</span> myNextData;
+  }
+}
+<span class="mainLev2">let</span> gpData = <span class="mainLev2">new</span> ExtendedDate();
+</code></pre>
 					<label for="kTwoZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
 			</div>
@@ -157,7 +252,61 @@
 				<div>
 					<label for="kThreeZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">class</span> <span class="mainLev2">CssClass</span> {
+<span class="mainLev3">// класс описывающий работника</span>
+<span class="mainLev1">class</span> <span class="mainLev2">Employee</span> {
+  <span class="mainLev1">constructor</span>(name, sername, job){
+    <span class="mainLev2">this</span>.name = name;
+    <span class="mainLev2">this</span>.sername = sername;
+    <span class="mainLev2">this</span>.job = job;
+  }
+  <span class="mainLev1">toString</span> = function(){
+    <span class="mainLev2">let</span> str = "";
+		
+    str += this.name + " ";
+    str += this.sername + " - ";
+    str += this.job + " ";
+    <span class="mainLev1">return</span> str;
+  }
+}
+<span class="mainLev3">//Массив работников</span>
+<span class="mainLev2">let</span> workers = [];
+workers[0] = <span class="mainLev2">new</span> Employee("Игорь", "Гранев", "Администратор");
+workers[1] = <span class="mainLev2">new</span> Employee("Максим", "Гранев", "Продавец-консультант");
+workers[2] = <span class="mainLev2">new</span> Employee("Олег", "Яковлев", "Продавец-консультант");
+workers[3] = <span class="mainLev2">new</span> Employee("Матрена", "Козицкая", "Товаровед");
+<span class="mainLev3">//Класс генрации html кода таблицы</span>
+<span class="mainLev1">class</span> <span class="mainLev2">EmpTable</span>  {
+  <span class="mainLev1">constructor</span>(gpArray){
+    <span class="mainLev2">this</span>.gpArray = gpArray;
+  }
+  <span class="mainLev1">getHtml()</span>{
+    <span class="mainLev2">let</span> j;
+    <span class="mainLev2">let</span> i;
+    <span class="mainLev2">let</span> myHtmlCode = "&lt;table>";
+    <span class="mainLev2">let</span> myKeys=[];
+		
+    myHtmlCode += "&lt;tbody>";
+    <span class="mainLev2">for</span> (i = 0; i&lt;this.gpArray.length; i++){
+      <span class="mainLev3">//Поиск значений в объекте</span>
+      myKeys = Object.values(this.gpArray[i]);
+      j = 0;
+      <span class="mainLev2">do</span> {
+        <span class="mainLev2">if</span> (myKeys.length &lt;= j) <span class="mainLev2">break</span>;
+        <span class="mainLev2">if</span> ((typeof myKeys[j] == "string") || (typeof myKeys[j] == "number")) j++;
+        <span class="mainLev2">else</span> myKeys.splice(j, 1);
+      } <span class="mainLev2">while</span> (true)
+      <span class="mainLev3">//Создание таблицы</span>
+      myHtmlCode += "&lt;tr>";
+      myHtmlCode += "&lt;td>" + (i+1) + "." + "&lt;/td>";
+      <span class="mainLev2">for</span> (let j=0; j&lt;myKeys.length; j++){
+        myHtmlCode += "&lt;td>" + myKeys[j] + "&lt;/td>";
+      }
+      myHtmlCode += "&lt;/tr>";
+    }
+    myHtmlCode += "&lt;/tbody>&lt;/table>";
+    <span class="mainLev1">return</span> myHtmlCode;
+  }
+}
   </code></pre>
 					<label for="kThreeZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
@@ -192,7 +341,19 @@
 				<div>
 					<label for="kFourZadan" class="viewCode">Показать код класса</label>
 					<pre><code>
-<span class="mainLev1">class</span> <span class="mainLev2">HtmlBlock</span> {
+<span class="mainLev1">class</span> <span class="mainLev2">StyledEmpTable</span> <span class="mainLev1">extends</span> <span class="mainLev2">EmpTable</span> {
+  <span class="mainLev1">getStyles</span> = function(){
+    <span class="mainLev2">let</span> str = "&lt;style>";
+    str += ".gpStyle table{font-family: monoshire; font-size: 1.5rem; color: red;}";
+    str += ".gpStyle td{padding: 2px;}";
+    str += "&lt;/style>";
+    <span class="mainLev1">return</span> str;
+  }
+  <span class="mainLev1">getHtml()</span>{
+    <span class="mainLev1">return</span> <span class="mainLev2">this</span>.getStyles() + <span class="mainLev2">super</span>.getHtml();
+  }
+}
+<span class="mainLev2">let</span> myPrimer2 = <span class="mainLev2">new</span> StyledEmpTable(workers);
   </code></pre>
 					<label for="kFourZadan" class="hideCode">Сскрыть код класса</label>
 				</div>
